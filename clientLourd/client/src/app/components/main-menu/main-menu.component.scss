@@ -1,0 +1,80 @@
+@import "../../../theme.scss";
+
+.form {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    height: 62vh;
+
+}
+
+.mat-form-field {
+    margin-left: 25px;
+    margin-right: 25px;
+    max-width: 220px;
+    min-width: 220px;
+}
+
+.tab-menu {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.jouer {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    height: 62vh;
+}
+
+.playButton {
+	color: white;
+	border-radius: 25px;
+	width: 200px;
+    height: 80px;
+    font-size: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 15px;
+}
+
+.joinButton {
+    background-color: green;
+}
+
+.createButton {
+    background-color: rgb(0, 0, 255);
+}
+
+.material-icons {
+    position: fixed;
+    bottom: 200px;
+    width: 20vw;
+    height: 10vh;
+    font-size: 100px;
+}
+
+.svg1{
+    position:absolute;
+    top: 210px;
+    left:50px;
+}
+
+.svg2{
+    position:absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#confetti {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 64vw;
+    height: 79vh;
+} 
+
+.tuto {
+    display: inline-block;
+}

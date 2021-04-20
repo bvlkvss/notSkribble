@@ -1,0 +1,46 @@
+@import "./../../../../theme.scss";
+
+.word {
+    font-size: large;
+    color: $textColor;
+}
+
+.normal {
+    font-size: medium;
+}
+
+.end {
+    font-size: large;
+    font-weight: bold;
+}
+
+.draw {
+    color: $textColor;
+    font-weight: bold;
+}
+
+.blue {
+    color: blue;
+}
+
+.red {
+    color: red;
+}
+
+p {
+    text-align: center;
+}
+
+#game_info {
+    width: 200px;
+    height: 150px;
+    position: absolute;
+}
+
+.container {
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+    display: table-cell;
+}
+

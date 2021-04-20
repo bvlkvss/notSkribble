@@ -1,0 +1,26 @@
+<mat-card class="{{this.currentUserService.getTheme()}}" id="chat">
+    <mat-card-title>
+        {{'chat' | translate}}
+        <button mat-flat-button class="{{this.currentUserService.getTheme()}}" id="windowButton"
+            (click)="detachChatWindow()" [disabled]="this.tutorialService.isTutorial">
+            <span class="material-icons">
+                filter_none
+            </span>
+        </button>
+
+
+    </mat-card-title>
+    <mat-tab-group mat-stretch-tabs #chatTabs [selectedIndex]="this.convoManagerService.getActiveTab()"
+        (selectedIndexChange)="this.convoManagerService.setActiveTab($event)" (click)="updateRooms()">
+        <mat-tab class="tab-chat" label="Conversations">
+            <app-convo *ngIf="afficherConvo()"></app-convo>
+            <app-room-message *ngIf="afficherRoomMessages()"></app-room-message>
+        </mat-tab>
+        <mat-tab class="tab-chat {{this.currentUserService.getTheme()}}" label="{{'join' | translate}}">
+            <app-join-chat></app-join-chat>
+        </mat-tab>
+        <mat-tab class="tab-chat {{this.currentUserService.getTheme()}}" label="{{'create' | translate}}">
+            <app-create-chat></app-create-chat>
+        </mat-tab>
+    </mat-tab-group>
+</mat-card>

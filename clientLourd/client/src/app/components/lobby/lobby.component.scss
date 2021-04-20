@@ -1,0 +1,15 @@
+@import "./../../../theme.scss";
+
+.lobby {
+    height: 75vh;
+}
+
+.wrapper {
+    display: flex;
+}
+.returnLobby{
+    border: 1px solid #ccc;
+    float: left;
+    z-index: 2;
+    padding: 2px;
+}

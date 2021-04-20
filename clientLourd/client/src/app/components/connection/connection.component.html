@@ -1,0 +1,35 @@
+<mat-card class="card {{this.currentUserService.getTheme()}}" id="connectionCard">
+    <mat-card-title>{{'login' | translate}}</mat-card-title>
+    <mat-card-actions>
+        <form [formGroup]="loginForm">
+            <p>
+                <mat-form-field class="formField" appearance="standard">
+                    <mat-label class="{{this.currentUserService.getTheme()}}"> {{'username' | translate}} </mat-label>
+                    <input matInput formControlName="username">
+                    <mat-error *ngIf="loginForm.get('username')?.hasError('required')">{{'required' | translate}}
+                    </mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field class="formField" appearance="standard">
+                    <mat-label class="{{this.currentUserService.getTheme()}}"> {{'pswd' | translate}} </mat-label>
+                    <input matInput class="info" [type]="hide ? 'password' : 'text'" formControlName="password"
+                        (keydown.enter)="onEnter()">
+                    <button mat-flat-button id="hideButton" matSuffix (click)="hide = !hide"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" type="button">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="loginForm.get('password')?.hasError('required')">{{'required' | translate}}
+                    </mat-error>
+                </mat-form-field>
+            </p>
+        </form>
+        <button mat-raised-button class="bigButton" (click)="connect()" [disabled]="this.loginForm.invalid">{{'login' |
+            translate}}</button>
+        <p>
+            <button mat-button class="navButton" class = "{{this.currentUserService.getTheme()}}"
+                (click)="this.componentManagerService.setComponent(displayType.SIGNUP)">{{'createAcc' |
+                translate}}</button>
+        </p>
+    </mat-card-actions>
+</mat-card>

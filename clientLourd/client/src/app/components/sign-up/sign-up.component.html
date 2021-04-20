@@ -1,0 +1,115 @@
+<div>
+
+    <mat-card class="card {{this.currentUserService.getTheme()}}" id="signUpCard">
+        <mat-card-title>{{'createAcc' | translate}}</mat-card-title>
+        <mat-card-actions>
+            <form [formGroup]="userForm">
+
+                <!-- username -->
+                <mat-form-field class="formField" id="username" appearance="standard">
+                    <mat-label class="{{this.currentUserService.getTheme()}}">{{'username' | translate}}</mat-label>
+                    <input matInput class="input" formControlName="username" required>
+                    <mat-error *ngIf="userForm.get('username')?.hasError('required')"> {{'required' | translate}}
+                    </mat-error>
+                    <mat-error *ngIf="userForm.get('username')?.hasError('minlength')"> {{'min' | translate}}
+                    </mat-error>
+                    <mat-error *ngIf="userForm.get('username')?.hasError('maxlength')"> {{'max' | translate}}
+                    </mat-error>
+                    <mat-error *ngIf="userForm.get('username')?.hasError('pattern')"> {{'specialChar' | translate}}
+                    </mat-error>
+                </mat-form-field>
+                <!-- first name  -->
+                <mat-form-field class="formField" appearance="standard">
+                    <mat-label class="{{this.currentUserService.getTheme()}}">{{'fname' | translate}}</mat-label>
+                    <input matInput class="input" formControlName="firstName" required>
+                    <mat-error *ngIf="userForm.get('firstName')?.hasError('required')"> {{'required' | translate}}
+                    </mat-error>
+                    <mat-error *ngIf="userForm.get('firstName')?.hasError('minlength')"> {{'min' | translate}}
+                    </mat-error>
+                    <mat-error *ngIf="userForm.get('firstName')?.hasError('maxlength')"> {{'max' | translate}}
+                    </mat-error>
+                    <mat-error *ngIf="userForm.get('firstName')?.hasError('pattern')"> {{'specialChar' | translate}}
+                    </mat-error>
+
+                </mat-form-field>
+                <!-- last name  -->
+                <mat-form-field class="formField" appearance="standard">
+                    <mat-label class="{{this.currentUserService.getTheme()}}">{{'lname' | translate}}</mat-label>
+                    <input matInput class="input" formControlName="lastName" required>
+                    <mat-error *ngIf="userForm.get('lastName')?.hasError('required')"> {{'required' | translate}}
+                    </mat-error>
+                    <mat-error *ngIf="userForm.get('lastName')?.hasError('minlength')"> {{'min' | translate}}
+                    </mat-error>
+                    <mat-error *ngIf="userForm.get('lastName')?.hasError('maxlength')"> {{'max' | translate}}
+                    </mat-error>
+                    <mat-error *ngIf="userForm.get('lastName')?.hasError('pattern')"> {{'specialChar' | translate}}
+                    </mat-error>
+
+                </mat-form-field>
+
+                <!-- password  -->
+                <mat-form-field class="formField" appearance="standard">
+                    <mat-label class="{{this.currentUserService.getTheme()}}">{{'pswd' | translate}}</mat-label>
+                    <input matInput class="input" type="password" formControlName="password" required>
+                    <mat-error *ngIf="userForm.get('password')?.hasError('required')"> {{'required' | translate}}
+                    </mat-error>
+                    <mat-error *ngIf="userForm.get('password')?.hasError('minlength')"> {{'minPswd' | translate}}
+                    </mat-error>
+                    <mat-error *ngIf="userForm.get('password')?.hasError('maxlength')"> {{'maxPswd' | translate}}
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- confirmedPassword  -->
+                <mat-form-field class="formField" appearance="standard">
+                    <mat-label class="{{this.currentUserService.getTheme()}}">{{'confirm' | translate}} {{'pswd' | translate}}</mat-label>
+                    <input matInput class="input" type="password" formControlName="confirmPassword" required
+                        (keydown.enter)="onEnter()">
+                    <mat-error *ngIf="userForm.get('confirmPassword')?.hasError('required')"> {{'required' | translate}}
+                    </mat-error>
+                </mat-form-field>
+                <div id="passwordNotMatch">
+                    <mat-error *ngIf="userForm.errors?.passwordNotMatch"> {{'pswdMatch' | translate}} </mat-error>
+                </div>
+                <mat-card id="avatarList">
+                    <mat-card-title class="avatar"> AVATAR </mat-card-title>
+                    <mat-card-actions>
+                        <mat-button-toggle-group aria-label="Avatar" formControlName="avatar">
+                            <mat-button-toggle value="1">
+                                <img [src]="this.avatarService.getAvatarSource(1)">
+                            </mat-button-toggle>
+                            <mat-button-toggle value="2">
+                                <img [src]="this.avatarService.getAvatarSource(2)">
+                            </mat-button-toggle>
+                            <mat-button-toggle value="3">
+                                <img [src]="this.avatarService.getAvatarSource(3)">
+                            </mat-button-toggle>
+                            <mat-button-toggle value="4">
+                                <img [src]="this.avatarService.getAvatarSource(4)">
+                            </mat-button-toggle>
+                            <mat-button-toggle value="5">
+                                <img [src]="this.avatarService.getAvatarSource(5)">
+                            </mat-button-toggle>
+                            <mat-button-toggle value="6">
+                                <img [src]="this.avatarService.getAvatarSource(6)">
+                            </mat-button-toggle>
+                            <mat-button-toggle value="7">
+                                <img [src]="this.avatarService.getAvatarSource(7)">
+                            </mat-button-toggle>
+                            <mat-button-toggle value="8">
+                                <img [src]="this.avatarService.getAvatarSource(8)">
+                            </mat-button-toggle>
+                        </mat-button-toggle-group>
+                    </mat-card-actions>
+                </mat-card>
+            </form>
+
+            <button mat-raised-button class="bigButton" id="create" (click)="createAccount()"
+                [disabled]="this.userForm.invalid">{{'create' | translate}}</button>
+
+            <button mat-flat-button class="navButton {{this.currentUserService.getTheme()}}" id="back"
+                (click)="this.componentManagerService.setComponent(displayType.CONNECTION);">{{'back' |
+                translate}}</button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>

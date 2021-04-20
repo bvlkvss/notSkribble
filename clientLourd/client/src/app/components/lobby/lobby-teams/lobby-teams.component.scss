@@ -1,0 +1,123 @@
+@import "./../../../../theme.scss";
+
+.container-virtual {
+    height: 10vh;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border: 4px solid green;
+    background-color: green;
+    border-radius: 15px;
+}
+
+.container-virtual-filler {
+    height: 9vh;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.teams {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.vs {
+    font-size: medium;
+    font-weight: bold;
+    padding: 2vw;
+}
+
+.play-button {
+    height: 6vh;
+    bottom: 2vh;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    border: 4px solid white;
+    border-radius: 15px;
+}
+
+.emptyImg {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    border: 4px solid white;
+    border-radius: 15px;
+    align-self: center;
+    text-align: center;
+    display: inline-block;
+}
+
+.player {
+    padding: 3px;
+}
+
+.wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.team {
+    width: 25vw;
+    height: 50vh;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.team-one {
+    border: 5px solid blue;
+    background-color: blue;
+
+}
+
+.team-two {
+    border: 5px solid red;
+    background-color: red;
+}
+
+p {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+
+::ng-deep .mat-checkbox-layout .mat-checkbox-label {
+    padding-right: 20px;
+}
+
+.button{
+	background-color: white;
+	color: green;
+	border-radius: 25px;
+	width: 190px;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    opacity: 0.03 !important;
+    background-color: white!important;
+  }
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: white;
+}
+
+.returnLobby{
+    border: 1px solid #ccc;
+    float: left;
+    z-index: 2;
+    padding: 2px;
+}
+

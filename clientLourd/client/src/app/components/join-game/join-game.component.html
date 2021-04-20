@@ -1,0 +1,28 @@
+<div>
+    <button mat-button id="getRooms" type="button" (click)="refresh()">
+        <span class="material-icons">
+            autorenew
+        </span>
+    </button>
+    <p> {{'availableGames' | translate}} </p>
+
+    <mat-selection-list #roomList [multiple]="false">
+        <mat-list-option class=" {{this.currentUserService.getTheme()}}" id="room"
+            (click)="this.joinRoom(roomList.selectedOptions.selected[0]?.value)" [disabled]="!roomNotFull(room)"
+            *ngFor="let room of this.joinRoomService.joinRooms" [value]="room.name">
+            <div class="list">
+                <div class="gameInfo">
+                    {{room.name}}
+                </div>
+                <div class="gameInfo" id="players">
+                    {{'players' | translate}}
+                    <div class="gameInfo" id="playerName" *ngFor="let player of room.users" >{{player}}</div>
+                </div>
+            </div>
+        </mat-list-option>
+    </mat-selection-list>
+</div>
+<div>
+    <br>
+    <button mat-raised-button class="bigButton backButton" (click)="back()">{{'back' | translate}}</button>
+</div>

@@ -1,0 +1,38 @@
+<mat-card class="{{this.currentUserService.getTheme()}}" id="menu" fxFlex="100" [style.width.vw]="this.windowManagerService.getGamePageWidth()">
+    <app-main-menu *ngIf="this.componentManagerService.currentGameComponent === componentDisplay.MENUPAGE">
+    </app-main-menu>
+
+    <app-join-game *ngIf="this.componentManagerService.currentGameComponent === componentDisplay.JOIN_GAME"></app-join-game>
+
+    <app-lobby *ngIf="this.componentManagerService.currentGameComponent === componentDisplay.CLASSIC_LOBBY"></app-lobby>
+    <app-game-mode *ngIf="this.componentManagerService.currentGameComponent === componentDisplay.CLASSIC_GAME"></app-game-mode>
+
+    <app-game-mode *ngIf="this.componentManagerService.currentGameComponent === componentDisplay.SOLO_GAME"></app-game-mode>
+
+    <app-lobby *ngIf="this.componentManagerService.currentGameComponent === componentDisplay.COOP_LOBBY"></app-lobby>
+    <app-game-mode *ngIf="this.componentManagerService.currentGameComponent === componentDisplay.COOP_GAME"></app-game-mode>
+
+
+    <app-lobby *ngIf="this.componentManagerService.currentGameComponent === componentDisplay.BLIND_LOBBY"></app-lobby>
+    <app-game-mode *ngIf="this.componentManagerService.currentGameComponent === componentDisplay.BLIND_GAME"></app-game-mode>
+    <app-game-mode *ngIf="this.componentManagerService.currentGameComponent === componentDisplay.FREE_GAME"></app-game-mode>
+    
+</mat-card>
+
+<app-chat *ngIf="!this.windowManagerService.getIsDetached()"></app-chat>
+<div class="floatTL" *ngIf="isSVGTwo()">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="900px" height="600px">
+        <defs>
+            <marker id="point" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5"
+                orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" />
+            </marker>
+
+        </defs>
+
+        <polyline id="arrow" points="895,265 821,500" fill="none" stroke="black" marker-start="url(#point)"
+            display="block" stroke-width="3px" *ngIf="this.tutorialService.textShow === 6"></polyline>
+        <polyline id="arrow" points="890,570 840,570" fill="none" stroke="black" marker-start="url(#point)"
+            display="block" stroke-width="3px" *ngIf="this.tutorialService.textShow === 7" ></polyline>
+    </svg>
+</div>

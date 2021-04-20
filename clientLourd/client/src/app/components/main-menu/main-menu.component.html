@@ -1,0 +1,156 @@
+<mat-card-title class="{{this.currentUserService.getThemeTitle()}}">Menu</mat-card-title>
+
+<mat-tab-group mat-stretch-tabs [selectedIndex]="this.tutorialService.activeTab"
+    (selectedIndexChange)="this.tutorialService.setActiveTab($event)">
+    <mat-tab class="tab-menu " label="{{'play' | translate}}">
+        <div class="jouer" *ngIf="!this.isJoinGameDisplay">
+            <div class="form" [style.width.vw]="this.windowManagerService.getGamePageWidth()">
+                <form [formGroup]="gameOptionForm">
+                    <mat-form-field appearance="fill">
+
+                        <mat-label class="{{this.currentUserService.getTheme()}}">{{'gameMode' | translate}}</mat-label>
+                        <mat-select formControlName="gameMode" required>
+                            <mat-option [disabled]="this.tutorialService.isTutorial"
+                                class="{{this.currentUserService.getTheme()}}" value="classic">{{ 'classic' |
+                                translate}}</mat-option>
+                            <mat-option (click)="this.tutorialService.setActionDone(0)"
+                                class="not-empty-select {{this.currentUserService.getTheme()}}" value="solo">{{ 'solo' |
+                                translate}}</mat-option>
+                            <mat-option [disabled]="this.tutorialService.isTutorial"
+                                class="{{this.currentUserService.getTheme()}}" value="coop">{{ 'coop' | translate}}
+                            </mat-option>
+                            <mat-option [disabled]="this.tutorialService.isTutorial"
+                                class="{{this.currentUserService.getTheme()}}" value="blind">{{ 'blind' | translate}}
+                            </mat-option>
+                            <mat-option [disabled]="this.tutorialService.isTutorial"
+                                class="{{this.currentUserService.getTheme()}}" value="free">{{ 'free' | translate}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="gameOptionForm.get('gameMode')?.hasError('required')">{{'chooseMode' |
+                            translate}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+
+                        <mat-label class="{{this.currentUserService.getTheme()}}">{{'difficulty' | translate}}
+                        </mat-label>
+                        <mat-select formControlName="difficulty" required>
+                            <mat-option (click)="this.tutorialService.setActionDone(1)"
+                                class="{{this.currentUserService.getTheme()}}" value="easy">{{'easy' | translate}}
+                            </mat-option>
+                            <mat-option class="{{this.currentUserService.getTheme()}}" value="mid"
+                                [disabled]="this.tutorialService.isTutorial">{{'normal' | translate}}</mat-option>
+                            <mat-option class="{{this.currentUserService.getTheme()}}" value="hard"
+                                [disabled]="this.tutorialService.isTutorial">{{'hard' | translate}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="gameOptionForm.get('difficulty')?.hasError('required')">{{'chooseDiff' |
+                            translate}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+
+                        <mat-label class="{{this.currentUserService.getTheme()}}">{{'language' | translate}}</mat-label>
+                        <mat-select formControlName="language" required>
+                            <mat-option class="{{this.currentUserService.getTheme()}}" value="fr"
+                                [disabled]="this.tutorialService.isTutorial">{{'french' | translate}}</mat-option>
+                            <mat-option (click)="this.tutorialService.setActionDone(2)"
+                                class="{{this.currentUserService.getTheme()}}" value="en">{{'english' | translate}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="gameOptionForm.get('language')?.hasError('required')">{{'chooseLang' |
+                            translate}}</mat-error>
+                    </mat-form-field>
+                </form>
+
+                <div class="svg1" *ngIf="showSvgOne()">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="700px" height="200px">
+                        <defs>
+                            <marker id="point" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5"
+                                orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" />
+                            </marker>
+
+                        </defs>
+
+                        <polyline id="arrow" points="100,10 100,150" fill="none" stroke="black"
+                            marker-start="url(#point)" display="block" stroke-width="3px"
+                            *ngIf="this.tutorialService.textShow === 0"></polyline>
+                        <polyline id="arrow" points="430,10 250,152" fill="none" stroke="black"
+                            marker-start="url(#point)" display="block" stroke-width="3px"
+                            *ngIf="this.tutorialService.textShow === 1"></polyline>
+                        <polyline id="arrow" points="600,10 250,152" fill="none" stroke="black"
+                            marker-start="url(#point)" display="block" stroke-width="3px"
+                            *ngIf="this.tutorialService.textShow === 2"></polyline>
+                        <polyline id="arrow" points="470,100 260,180" fill="none" stroke="black"
+                            marker-start="url(#point)" display="block" stroke-width="3px"
+                            *ngIf="this.tutorialService.textShow === 3"></polyline>
+                    </svg>
+                </div>
+
+
+                <div>
+                    <button mat-raised-button class="playButton joinButton" (click)="onJoin()"
+                        [disabled]="this.gameOptionForm.invalid || this.isSoloGameMode()">{{'search' |
+                        translate}}</button>
+                    <button mat-raised-button class="playButton createButton" (click)="onCreateGame()"
+                        [disabled]="this.gameOptionForm.invalid">{{'bigCreate' | translate}}</button>
+                </div>
+
+            </div>
+
+            <div class="svg2" *ngIf="showSvgTwo()">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="700px" height="200px">
+                    <defs>
+                        <marker id="point" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5"
+                            orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 5 L 0 10 z" />
+                        </marker>
+
+                    </defs>
+
+                    <polyline id="arrow" points="480,10 480,58" fill="none" stroke="black" marker-start="url(#point)"
+                        display="block" stroke-width="3px" *ngIf="this.tutorialService.textShow === 9"></polyline>
+                </svg>
+            </div>
+
+
+        </div>
+
+        <div *ngIf="this.tutorialService.isTutorial && this.tutorialService.textShow === 0" class="tutorial">
+            <div class="tuto">
+                    {{this.tutorialService.getTextShow() | translate}}
+            </div>
+        </div>
+        <div *ngIf="this.tutorialService.isTutorial && (this.tutorialService.textShow === 1 || this.tutorialService.textShow === 2)" class="tutorial3">
+            <div class="tuto">
+                    {{this.tutorialService.getTextShow() | translate}}
+            </div>
+        </div>
+        <div *ngIf="this.tutorialService.isTutorial && this.tutorialService.textShow === 3" class="tutorial4">
+            <div class="tuto">
+                    {{this.tutorialService.getTextShow() | translate}}
+            </div>
+        </div>
+        <div class="tutorial5" *ngIf="this.tutorialService.isTutorial && this.tutorialService.textShow === 9">
+            {{this.tutorialService.getTextShow() | translate}}
+            <br>
+            <button mat-raised-button (click)="this.tutorialService.actionDone = true">{{'close' | translate}}</button>
+        </div>
+
+    </mat-tab>
+    <mat-tab class="tab-menu {{this.currentUserService.getTheme()}}" label="{{'profil' | translate}}">
+        <app-profil></app-profil>
+    </mat-tab>
+    <mat-tab class="tab-menu {{this.currentUserService.getTheme()}}" label="{{'tutorial' | translate}}">
+        <app-tutorial></app-tutorial>
+    </mat-tab>
+    <mat-tab class="tab-menu {{this.currentUserService.getTheme()}}" label="Options">
+        <app-options></app-options>
+    </mat-tab>
+
+    <mat-tab class="tab-menu {{this.currentUserService.getTheme()}}" label="{{'addWord' | translate}}">
+        <app-word-image></app-word-image>
+    </mat-tab>
+</mat-tab-group>
+
+<canvas id="confetti"></canvas>

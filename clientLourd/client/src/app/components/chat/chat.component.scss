@@ -1,0 +1,13 @@
+@import "../../../theme.scss";
+
+#chat {
+    width: 30vw;
+    height: 75vh;
+    float: right;
+}
+
+#windowButton{
+    max-width: 35px;
+    min-width: 35px;
+    right: -100px;
+}

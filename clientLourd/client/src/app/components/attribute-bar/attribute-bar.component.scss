@@ -1,0 +1,79 @@
+@import "./../../../theme.scss";
+
+#attribute {
+    width: 33vw;
+    right: -7vw;
+    position: absolute;
+    bottom: 2vh;
+}
+
+.grid {
+    display: flex;
+    justify-content: space-around;
+    width: 23vw;
+}
+
+#slideContainer {
+    padding: 5px;
+    position: relative;
+    margin-bottom: 2px;
+    height: 5vh;
+    width: 10vw;
+    border: 3px solid $textColor;
+}
+
+.textInput {
+    position: relative;
+    width: 1vw;
+    bottom: 30px;
+    left: 74%;
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(48, 46, 64);
+    border: none;
+    text-align: center;
+}
+
+#label {
+    position: relative;
+    bottom: 30px;
+    right: -0.5vw;
+    color: $textColor;
+    font-family: Hack, monospace;
+}
+
+.size-slider {
+    -webkit-appearance: none;
+    width: 9vw;
+    height: 7px;
+    position: relative;
+    bottom: 6px;
+    border-radius: 5px;
+    background-color: $textColor;
+    outline: none;
+    opacity: 0.98;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+}
+
+#header {
+    position: relative;
+    color: $textColor;
+    bottom: 15px;
+    width: auto;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 0px;
+    left: 6%;
+    font-weight: bold;
+}
+
+.size-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: black;
+    cursor: pointer;
+}

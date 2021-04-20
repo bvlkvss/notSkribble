@@ -1,0 +1,20 @@
+<div class="sidebar">
+    <div class="container">
+    
+        <img [src]="this.avatarService.getUserAvatar()">
+        <br>
+        <label class="name">{{this.soloService.playerName}}</label>
+        <br>
+        <br>
+        <label class="score">{{this.soloService.score}} points </label>
+
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <button mat-button class="end start-button" *ngIf="!this.soloService.isGameStart" (click)="this.soloService.startGameRoom()" [disabled]="soloTutoDisable()">
+            {{'startGame' | translate}}
+        </button>
+    </div>
+
+</div>

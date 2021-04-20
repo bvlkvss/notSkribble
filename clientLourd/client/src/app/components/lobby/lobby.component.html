@@ -1,0 +1,13 @@
+<div class="wrapper" [style.width.vw]="this.windowManagerService.getGamePageWidth()">
+    <div class="lobby">
+
+        <button mat-button class="returnLobby" type="button" *ngIf="isCoop() || isBlind()" (click)="returnLobby()">
+            <span class="material-icons">
+                keyboard_backspace
+            </span>
+        </button>
+
+        <app-lobby-teams *ngIf="isClassic() || isBlind()"></app-lobby-teams>
+        <app-lobby-coop *ngIf="isCoop()"></app-lobby-coop>
+    </div>
+</div>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.1/socket.io.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- USER CREATION -->
+    <h2>Create User</h2>
+    username: <input id="usernameCreation" type="text">
+    password: <input id="passwordCreation" type="text">
+    <br>
+    first name:<input id="firstnameCreation" type="text">
+    last name:<input id="lastnameCreation" type="text">
+    <br>
+    <button id="createUserBtn">Create</button>
+    <br>
+
+    <!-- CONNECT / DISCONNECT -->
+    <h2>Connect/Disconnect</h2>
+    username: <input id="usernameAuth" type="text">
+    password: <input id="passwordAuth" type="text">
+    <br>
+    <button id="ConnectBtn">Connect</button>
+    <button id="DisconnectBtn">Disconnect</button>
+    <br>
+
+    <!-- ROOMS -->
+    <h2>Rooms</h2>
+    room: <input id="room" type="text">
+    <br>
+    <button id="joinRoomBtn">Join</button>
+    <button id="leaveRoomBtn">Leave</button>
+    <br>
+    <br> Connected rooms:
+    <ul id="rooms"></ul>
+    <br>
+    <br> All rooms:
+    <ul id="allRooms"></ul>
+
+    <!-- MESSAGES -->
+    <h2>Message</h2>
+    room: <input id="roomMsg" type="text">
+    message: <input id="msg" type="text">
+    <br>
+    <button id="sendBtn">Send</button>
+    <br>
+    <br> Messages:
+    <ul id="messages"></ul>
+
+    <!-- TEST -->
+    <h2>TEST</h2>
+    <button id="testBtn">Test</button>
+    <br>
+
+    <!-- EVENT HANDLERS AND EVENT EMITTERS -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            let socket = io.connect('http://127.0.0.1:5000');
+
+            // EVENT HANDLERS
+            socket.on('chatroom_message', function(msg) {
+                console.log(msg);
+                $('#messages').append(
+                    '<li>' +
+                    msg['data']['timestamp'] + ' ' +
+                    msg['data']['user'] + ' ' +
+                    msg['data']['chatroom'] + ' ' +
+                    msg['data']['message']
+                    + '</li>'
+                );
+            });
+
+            socket.on('create_user', function(msg) {
+                console.log(msg);
+            });
+
+            socket.on('authenticate_user', function(msg) {
+                console.log(msg);
+            });
+
+            socket.on('join_chatroom', function(msg) {
+                console.log(msg);
+            });
+
+            socket.on('connected_chatrooms', function(msg) {
+                console.log(msg);
+                $('#rooms').empty();
+                msg['data']['rooms'].forEach((item) => {
+                    $('#rooms').append('<li>' + item + '</li>')
+                })
+            });
+
+            socket.on('all_chatrooms', function(msg) {
+                console.log(msg);
+                $('#allRooms').empty();
+                msg['data']['rooms'].forEach((item) => {
+                    $('#allRooms').append('<li>' + item + '</li>')
+                })
+            });
+
+            socket.on('leave_chatroom', function() {
+                socket.emit('connected_chatrooms', {});
+                socket.emit('all_chatrooms', {});
+            });
+
+            socket.on('chatroom_logs', function(msg) {
+                console.log(msg)
+            });
+
+            socket.on('test', function(msg) {
+                console.log(msg)
+            });
+
+            // EVENT EMITTERS
+            $('#joinRoomBtn').on('click', function() {
+                console.log("Joining chatroom " + $('#room').val() + " ...")
+                socket.emit('join_chatroom', {
+                    "room": $('#room').val()
+                });
+                socket.emit('connected_chatrooms', {});
+                socket.emit('all_chatrooms', {});
+                socket.emit('chatroom_logs', {
+                    'room': $('#room').val()
+                });
+            });
+
+            $('#leaveRoomBtn').on('click', function() {
+                console.log("Leaving chatroom " + $('#room').val() + " ...")
+                socket.emit('leave_chatroom', {
+                    "room": $('#room').val()
+                });
+                socket.emit('connected_chatrooms', {});
+                socket.emit('all_chatrooms', {});
+            });
+
+            $('#sendBtn').on('click', function() {
+                console.log('Sending message...')
+                socket.emit('chatroom_message', {
+                    'message': $('#msg').val(),
+                    'room': $('#roomMsg').val()
+                });
+            });
+
+            $('#createUserBtn').on('click', function() {
+                console.log("Creating user...")
+                socket.emit('create_user', {
+                    'username': $('#usernameCreation').val(),
+                    'password': $('#passwordCreation').val(),
+                    'first_name': $('#firstnameCreation').val(),
+                    'last_name': $('#lastnameCreation').val()
+                });
+            });
+
+            $('#ConnectBtn').on('click', function() {
+                console.log("Connecting...")
+                console.log('authenticate user')
+                socket.emit('authenticate_user', {
+                    'username': $('#usernameAuth').val(),
+                    'password': $('#passwordAuth').val()
+                });
+                // socket.emit('connected_chatrooms', {});
+                // socket.emit('all_chatrooms', {});
+            });
+
+            $('#DisconnectBtn').on('click', function() {
+                console.log("Disconnecting...")
+                socket.emit('disconnect_user', {});
+            });
+
+            $('#testBtn').on('click', function() {
+                socket.emit('test', {});
+            });
+        });
+    </script>
+
+</body>
+
+</html>

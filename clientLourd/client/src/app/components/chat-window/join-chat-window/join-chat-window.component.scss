@@ -1,0 +1,21 @@
+@import "../../../../theme.scss";
+
+.wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    height: 65vh;
+    min-height: 100%;
+    width: 95vw;
+    text-align: center;
+}
+
+.mat-list-base {
+    padding-top: 8px;
+    display: block;
+    -webkit-tap-highlight-color: transparent;
+    overflow-y: auto;
+    height: 73vh;
+}

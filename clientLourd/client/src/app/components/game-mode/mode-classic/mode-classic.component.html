@@ -1,0 +1,33 @@
+<div class="sidebar">
+<br>
+    <img class="avatar" [src]="this.avatarService.getAvatarClassic(false, true)">
+    <br>
+    <label class="name" id="name3">{{this.classicService.teamTwo[0]}}</label>
+    <br>
+    <br>
+    
+    <img class="avatar" [src]="this.avatarService.getAvatarClassic(false, false)">
+    <br>
+    <label class="name" id="name4">{{this.classicService.teamTwo[1]}}</label>
+    <br>
+    <label class="score" id="team2">{{this.classicService.score[1]}} points</label>
+    
+    <div class="vs">
+        <img mat-card-image src = "./vs.png" alt="vs">
+    </div>
+    
+    <label class="score" id="team1">{{this.classicService.score[0]}} points </label>
+    <br>
+    
+    <img class="avatar" [src]="this.avatarService.getAvatarClassic(true, true)">
+    <br>
+    <label class="name" id="name1">{{this.classicService.teamOne[0]}} </label>
+    <br>
+    
+    <br>
+    <img class="avatar" [src]="this.avatarService.getAvatarClassic(true, false)">
+    <br>
+    <label class="name" id="name2">{{this.classicService.teamOne[1]}}</label>
+
+
+</div>

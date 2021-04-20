@@ -1,0 +1,28 @@
+<div class="options" [style.width.vw]="this.windowManagerService.getGamePageWidth()">
+
+        <form [formGroup]="options">
+            <div class="element">
+                <h2>{{'langTitle' | translate}}</h2>
+                <mat-form-field class="language" appearance="outline">
+                    <mat-label class="{{this.currentUserService.getTheme()}}">{{'language' | translate}}</mat-label>
+                    <mat-select [formControl]="languageControl">
+                        <mat-option class="{{this.currentUserService.getTheme()}}" value="fr">Français</mat-option>
+                        <mat-option class="{{this.currentUserService.getTheme()}}" value="en">English</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-raised-button class="bigButton" (click)="this.saveLang()" [disabled]="this.tutorialService.isTutorial">{{'save' | translate}}</button>
+            </div>
+            <div class="element"> 
+                <h2>{{'themeTitle' | translate}}</h2>
+                <mat-form-field class="language" appearance="outline">
+                    <mat-label class="{{this.currentUserService.getTheme()}}">{{'theme' | translate}}</mat-label>
+                    <mat-select [formControl]="themeControl">
+                        <mat-option class="{{this.currentUserService.getTheme()}}" value="light-theme">{{'light' | translate}}</mat-option>
+                        <mat-option class="{{this.currentUserService.getTheme()}}" value="dark-theme">{{'dark' | translate}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-raised-button class="bigButton" (click)="this.saveTheme()" [disabled]="this.tutorialService.isTutorial">{{'save' | translate}}</button>
+
+            </div>
+        </form>
+</div>

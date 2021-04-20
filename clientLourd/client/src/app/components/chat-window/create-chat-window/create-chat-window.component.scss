@@ -1,0 +1,15 @@
+@import "../../../../theme.scss";
+
+
+#createRoom{
+    text-align: center;
+    height: 82vh;
+    width: 100vw;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#createButton{
+    max-height: 40px;
+    max-width: 85px;
+}

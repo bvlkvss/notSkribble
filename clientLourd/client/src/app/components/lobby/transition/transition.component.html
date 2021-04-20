@@ -1,0 +1,3 @@
+<div class="countDown" [@transitionState] = "getStateName()" [style.width.vw]="this.windowManagerService.getTransitionWidth()">
+    <p>{{this.effectService.counter}}</p>
+</div>

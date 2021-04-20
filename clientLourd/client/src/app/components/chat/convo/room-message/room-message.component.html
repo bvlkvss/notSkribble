@@ -1,0 +1,41 @@
+<div class="wrapper">
+    <div class="room-header">
+        <button mat-button class="returnChat" type="button" (click)="returnChat()">
+            <span class="material-icons">
+                keyboard_backspace
+            </span>
+        </button>
+        <div class="name">
+            <p>
+                {{this.roomservice.roomName}}
+            </p>
+        </div>
+        <button mat-button class="returnChat" type="button" (click)="getHistory()">
+            <span class="material-icons">
+                history
+            </span>
+        </button>
+    </div>
+    <div class="messages" #scroll [scrollTop]="scroll.scrollHeight">
+        <p *ngFor="let msg of this.roomservice.messages"> {{msg}} </p>
+    </div>
+    <div class="typeMessage">
+
+        <mat-form-field class="message" [class.notpriv]="!isPrivateRoom()" [class.priv]="isPrivateRoom()" appearance="outline">
+            <mat-label> Message </mat-label>
+            <input #textInput matInput type="text" placeholder="Type a message" name="newMessage"
+                [(ngModel)]="newMessage" (keydown.enter)="sendMessage()">
+        </mat-form-field>
+
+        <button mat-raised-button class="smallButton" type="button" (click)="sendMessage()">
+            {{'send' | translate}}
+        </button>
+        <span class="hint">
+
+            <button mat-raised-button class="hintButton" type="button" (click)="askHint()" *ngIf="isPrivateRoom()">
+                {{'hint' | translate}}
+            </button>        
+            
+        </span>
+    </div>
+</div>

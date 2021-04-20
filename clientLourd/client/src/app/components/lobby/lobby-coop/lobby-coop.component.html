@@ -1,0 +1,38 @@
+<div class="lobby" [style.width.vw]="this.windowManagerService.getGamePageWidth()">
+    <div class="team">
+        {{'team' | translate}}
+    </div>
+    <br>
+    <div class="container" [style.width.vw]="this.windowManagerService.getLobbyPageWidth()">
+        <div class="wrapper" *ngIf="this.coopService.isNumberPlayers(1)">
+            <div class="player">
+                <img [src]="this.avatarService.getAvatarCoop(0)">
+                <p>{{this.coopService.team[0]}}</p>
+            </div>
+        </div>
+        <div class="wrapper" *ngIf="this.coopService.isNumberPlayers(2)">
+            <div class="player">
+                <img [src]="this.avatarService.getAvatarCoop(1)">
+                <p>{{this.coopService.team[1]}}</p>
+            </div>
+        </div>
+        <div class="wrapper" *ngIf="this.coopService.isNumberPlayers(3)">
+            <div class="player">
+                <img [src]="this.avatarService.getAvatarCoop(2)">
+                <p>{{this.coopService.team[2]}}</p>
+            </div>
+        </div>
+        <div class="wrapper" *ngIf="this.coopService.isNumberPlayers(4)">
+            <div class="player">
+                <img [src]="this.avatarService.getAvatarCoop(3)">
+                <p>{{this.coopService.team[3]}}</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <button mat-raised-button class="bigButton play-button"
+            [disabled]="!(this.coopService.isMinimumPlayers() && this.coopService.isUser())"
+            (click)="this.coopService.startCoopGame()">{{'start' | translate}}</button>
+    </div>
+</div>

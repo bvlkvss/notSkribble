@@ -1,0 +1,37 @@
+@import "../../../theme.scss";
+
+#connectionCard {
+  max-width: 300px;
+  max-height: 350px;
+  min-height: 350px;
+  margin-left: auto;
+  margin-right:auto;
+  border-color: $textColor;
+  box-shadow: 0 0px 10px 10px rgb(103, 102, 105);
+  text-align: center;
+  padding-bottom: 25px;
+  border-radius: 25px;
+}
+
+
+a{
+  display: block;
+  color: $buttonColor;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+#hideButton{
+  max-width: 40px;
+  min-width: 40px;
+  max-height: 30px;
+  min-height: 30px;
+  padding:0;
+  background-color:  rgb(108,99,255);
+  color: white;
+  margin-bottom: 0;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

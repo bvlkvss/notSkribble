@@ -1,0 +1,62 @@
+
+<div class="container-virtual" *ngIf="!this.classicService.getIsBlind()" [style.width.vw]="this.windowManagerService.getGamePageWidth()">
+    <button mat-button class="returnLobby" type="button" (click)="returnLobby()">
+        <span class="material-icons">
+            keyboard_backspace
+        </span>
+    </button>
+    <p>{{'virtual' | translate}}</p>
+    <mat-checkbox [checked]="this.lobbyTeamsService.selectedVirtual === 1"
+        [disabled]="this.lobbyTeamsService.disableVirtual" (change)="onChange(1)">{{'nice' | translate}}</mat-checkbox>
+    <mat-checkbox [checked]="this.lobbyTeamsService.selectedVirtual === 2"
+        [disabled]="this.lobbyTeamsService.disableVirtual" (change)="onChange(2)">{{'rude' | translate}}</mat-checkbox>
+    <mat-checkbox [checked]="this.lobbyTeamsService.selectedVirtual === 3"
+        [disabled]="this.lobbyTeamsService.disableVirtual" (change)="onChange(3)">{{'arrogant' | translate}}
+    </mat-checkbox>
+    <button mat-raised-button class="button" (click)="addPlayer()"
+        *ngIf="!this.lobbyTeamsService.disableVirtual">{{'addVirtual' | translate}}</button>
+    <button mat-raised-button class="button" (click)="removePlayer()"
+        *ngIf="this.lobbyTeamsService.haveVirtualPlayer">{{'removeVirtual' | translate}}</button>
+</div>
+
+<div class="container-virtual-filler" *ngIf="this.classicService.getIsBlind()" [style.width.vw]="this.windowManagerService.getGamePageWidth()">
+</div>
+
+<div class="teams">
+    <div class="wrapper">
+        <div class="team team-one">
+            <div class="player">
+                <p>{{this.lobbyTeamsService.getPlayer(true, true)}}</p>
+                <img [src]="this.avatarService.getAvatarClassic(true, true)" *ngIf="this.showImage(true, true)">
+                <div class="emptyImg" *ngIf="!this.showImage(true, true)"></div>
+            </div>
+            <div class="player">
+                <p>{{this.lobbyTeamsService.getPlayer(true, false)}}</p>
+                <img [src]="this.avatarService.getAvatarClassic(true, false)"  *ngIf="this.showImage(true, false)">
+                <div class="emptyImg" *ngIf="!this.showImage(true, false)"></div>
+            </div>
+        </div>
+    </div>
+    <div class="vs">
+        <img src="assets/icons/vs.png">
+    </div>
+    <div class="wrapper">
+        <div class="team team-two">
+            <div class="player">
+                <p>{{this.lobbyTeamsService.getPlayer(false, true)}}</p>
+                <img [src]="this.avatarService.getAvatarClassic(false, true)" *ngIf="this.showImage(false, true)">
+                <div class="emptyImg" *ngIf="!this.showImage(false, true)"></div>
+            </div>
+            <div class="player">
+                <p>{{this.lobbyTeamsService.getPlayer(false, false)}}</p>
+                <img [src]="this.avatarService.getAvatarClassic(false, false)" *ngIf="this.showImage(false, false)">
+                <div class="emptyImg" *ngIf="!this.showImage(false, false)"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div style="text-align: center; z-index: 0;">
+    <button mat-raised-button class="bigButton play-button" [disabled]="this.isDisabled()"
+        (click)="startGame()">{{'start' | translate}}</button>
+</div>

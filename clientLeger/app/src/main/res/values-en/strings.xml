@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="incorrect_login">Username or password incorrect</string>
+    <string name="connexion">Connection</string>
+    <string name="connect">Login</string>
+    <string name="create_in_connect"><u>Create an account</u></string>
+    <string name="alreadyConnected">You are already logged in !</string>
+    <string name="errorServer">An error occured</string>
+    <string name="name">First Name</string>
+    <string name="lastname">Last name</string>
+    <string name="confirmpassword">Confirm password</string>
+    <string name="submit">Submit</string>
+    <string name="create_account">Create account</string>
+    <string name="connexion_in_create"><u>Back</u></string>
+    <string name="existing_user">Username already exists</string>
+    <string name="fail">Account creation failed</string>
+    <string name="pwerror">Passwords are not identical</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="play">Play</string>
+    <string name="pairs">Word-image pairs</string>
+    <string name="profile">Profile</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="logout"><u>Logout</u></string>
+    <string name="chat">Instant Messages</string>
+    <string name="join">Join</string>
+    <string name="create_chat">Create</string>
+    <string name="createchatroom">Chat name:</string>
+    <string name="createchatroomSuccess">The chatroom was created successfully!</string>
+    <string name="createchatroomFail">This chatroom already exists!</string>
+    <string name="quitRoom"><font fgcolor='#FFFF2D2D'>Quit chat</font></string>
+    <string name="quitPopup">Are you sure you want to quit chat "%1$s"</string>
+    <string name="cancel">Cancel</string>
+    <string name="quitButton">Quit</string>
+    <string name="serverDown">You have been disconnected ! The server is no longer answering!</string>
+    <string name="modeTitle">Game mode</string>
+    <string name="difficultyTitle">Difficulty</string>
+    <string name="langTitle">Language</string>
+    <string name="nameGameroom">Gameroom\'s name</string>
+    <string name="create">Create</string>
+    <string name="quit">Quit the game</string>
+    <string name="pencilWidth">Pencil size</string>
+    <string name="eraserWidth">Eraser size</string>
+    <string name="gridWidth">Grid Size</string>
+    <string name="pick">Pick</string>
+    <string name="close">Close</string>
+    <string name="start">Start</string>
+    <string name="nextWord">Next word</string>
+    <string name="classicMode">Classic mode</string>
+    <string name="freeMode">Free mode</string>
+    <string name="blindMode">Blind mode</string>
+    <string name="soloMode">Solo mode</string>
+    <string name="coopMode">Cooperative mode</string>
+    <string name="appPref">App language</string>
+    <string name="changeLang">Change</string>
+    <string name="endgameroom">A user disconnected.\n\nThe game is over.</string>
+    <string-array name="mode_array">
+        <item>Classic</item>
+        <item>Solo</item>
+        <item>Cooperative</item>
+        <item>Blind</item>
+        <item>Free</item>
+    </string-array>
+    <string-array name="difficulty_array">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+    </string-array>
+
+    <string-array name="lang_array">
+        <item>French</item>
+        <item>English</item>
+    </string-array>
+
+    <string-array name="light_array">
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+    <string-array name="dark_array">
+        <item>Dark</item>
+        <item>Light</item>
+    </string-array>
+    <string name="gameCreationFailed">Game creation failed.</string>
+    <string name="roundDone">The word is: %1$s \nThe round is over!</string>
+    <string name="gameDone">The game is over! The winner is %1$s</string>
+    <string name="gameDoneCoopSolo">The time is over.\n\nThe game is done!</string>
+    <string name="gameDoneEqual">The game is over! It\' a draw!</string>
+    <string name="answerFound">Answer Found!</string>
+    <string name="replyRight">Reply right!</string>
+    <string name="remainingTries">Remaining tries: %1$s</string>
+    <string name="remainingTriesX">Remaining tries: X</string>
+    <string name="createError">An error happened.</string>
+    <string name="restart">This action will restart the application.\nAre you sure you want to proceed?</string>
+    <string name="guessingTeam">Guessing Team: %1$s</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="appTheme">App theme</string>
+    <string name="gameDoesntExist">The game is no longer available!</string>
+
+
+    <string name="gamePlayed"><b>Number of games played in classic and blind mode:</b> %1$s</string>
+    <string name="victoryRate">Victory rate in classic  and blind mode: %1$s</string>
+    <string name="averageTime"><b>Average time spent on a game:</b> %1$s</string>
+    <string name= "avggametimecomposes">%1$s days %2$s hours %3$s minutes %4$s seconds</string>
+    <string name="totalTime"><b>Total play time:</b> %1$s</string>
+    <string name="connexionHistory">Connection/Disconnection history</string>
+    <string name="gameHistory">Game played history</string>
+    <string name="chooseTheme">Please choose a theme</string>
+    <string name="lightTheme">Light theme</string>
+    <string name="darkTheme">Dark theme</string>
+    <string name="virtualPlayers">Virtual Players</string>
+    <string name="addVirtualPlayers">Add the virtual player</string>
+    <string name="removeVirtualPlayers">Remove the virtual player</string>
+    <string name="nice">Nice</string>
+    <string name="rude">Rude</string>
+    <string name="arrogant">Arrogant</string>
+    <string name="userProfile">User Profile</string>
+    <string name="generalData">General information</string>
+    <string name="firstName"><b>Firstname:</b> %1$s</string>
+    <string name="lastName"><b>Lastname:</b> %1$s</string>
+    <string name="usernameProfile"><b>Username:</b> %1$s</string>
+    <string name="stats">Play stats</string>
+    <string name="seeConnection">See logins/logouts</string>
+    <string name="seeStats">See all play stats</string>
+    <string name="connectDisconnect">Login and logouts</string>
+    <string name="playHistory">Game history</string>
+    <string name="loginDate">Login date</string>
+    <string name="loginTime">Login time</string>
+    <string name="logoutDate">Logout date</string>
+    <string name="logoutTime">Logout time</string>
+    <string name="gameMode">Game mode</string>
+    <string name="date">Date</string>
+    <string name="hour">Hour</string>
+    <string name="players">Players</string>
+    <string name="results">Result</string>
+    <string name="search">SEARCH</string>
+    <string name="createMAJ">CREATE</string>
+    <string name="playersList">Players:</string>
+    <string name="hideConnection">Hide logins/logouts</string>
+    <string name="hideStats">Hide all play stats</string>
+    <string name="soloScore">Best solo score: %1$s points</string>
+    <string name="availableRooms">Available rooms</string>
+
+    //solo
+    <string name="wordsGuessed">Words: %1$s</string>
+    <string name="hint">HINT</string>
+
+
+    //tuto
+    <string name="nextButton">Next</string>
+    <string name="backButton">Previous</string>
+    <string name="welcomeMessageHeader">Welcome to NotSbribbl.io!</string>
+    <string name="welcomeMessage">NotSkribbl.io is a cross-plateform game where you can test your drawing skills!\n\nClick on Next to learn how to play! </string>
+    <string name="tutoheader2">Main Menu</string>
+    <string name="tutop2">From the main menu, click on Play to create or to join a game. \n\nClick on Profil to see your statistics. \n\nClick on Options to set your preferences.</string>
+    <string name="tutoheader3">Chat</string>
+    <string name="tutop3">You always have access to the chat.\n\nIn chat, access your active chatrooms.\n\nIn Join, view a list of all the chatrooms you can join.\n\nYou can also create your own chatroom in Create!</string>
+    <string name="tutoheader4">Play</string>
+    <string name="tutop4">To play, select the game mode, the difficulty and the language that you desire.\n\nClick on Join or Create to be taken inside a lobby.\n\n When there is enough players, the creator will be able to start the game! </string>
+    <string name="tutop5">When a game begins, a new private chatroom will be added to your active chatrooms. This is where you will guess the drawing.\n\nIf it is your turn to draw, the tools will be below the drawing canvas and the word to draw will be on the top.</string>
+    <string name="tutoheader6">Game Modes</string>
+    <string name="tutop6">Let\'s explore together the game modes in which you can play!</string>
+    <string name="tutoheader7">Classic Mode</string>
+    <string name="tutop7">Form a team and challenge another in 2 vs 2 matches!\n\nWhen a player draws, his partner needs to guess the word before the time expires or his tries hit 0!\n\nIf the word isn\'t found, the other team can have a reply right!</string>
+    <string name="tutoheader8">Blind Mode</string>
+    <string name="tutop8">Like the Classic Mode, or almost..!\n\nThe drawing player can\'t see his drawing!</string>
+    <string name="tutoheader9">Solo Mode</string>
+    <string name="tutop9">Want to play alone? The Solo Mode is perfect.\n\nGuess every word a virtual player is drawing before the time expires or your tries hit 0!\n\nIf you guess a word, time will be added to your chrono.\n\nGuess as much words as you can!</string>
+    <string name="tutoheader10">Coop Mode</string>
+    <string name="tutop10">Like the Solo Mode, but you won\'t be alone!\n\nJoin a team and guess as much words as you together!</string>
+    <string name="tutoheader11">Free Mode</string>
+    <string name="tutop11">Need calm and serenity? Need to let your artistic self express himself? Thankfully, there\'s the Free Mode!\n\nDraw the word displayed with no time constraint and no.. stress.</string>
+    <string name="tutoheader12">Pssst!</string>
+    <string name="tutop12">When a virtual player is drawing, you can ask for a hint by clicking on the dedicated button!</string>
+    <string name="tutoheaderend">It\'s over!</string>
+    <string name="tutopend">You seem ready, go challenge your friends!</string>
+</resources>

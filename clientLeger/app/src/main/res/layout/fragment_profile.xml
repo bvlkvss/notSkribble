@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="745dp"
+    android:layout_height="525dp"
+    android:id="@+id/profilbackground"
+    tools:context=".MainMenu">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userProfile"
+                android:layout_marginTop="20dp"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/generalData"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/purple_light"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/firstname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/firstName"
+                        android:layout_gravity="center"
+                        android:textSize="16dp"/>
+                    <TextView
+                        android:id="@+id/lastname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lastName"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:textSize="16dp"/>
+                    <TextView
+                        android:id="@+id/profileUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/usernameProfile"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:textSize="16dp"/>
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/profilAvatar"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:background="@drawable/edit_text"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stats"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/purple_light"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/numberGames"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/gamePlayed"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/pourcVictories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/victoryRate"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/averageTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/averageTime"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/timeSpent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/totalTime"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/solomax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/soloScore"
+                android:textSize="16dp"/>
+
+            <Button
+                android:id="@+id/openConHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/seeConnection"
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:id="@+id/loginTable"
+                android:layout_width="680dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/connectDisconnect"
+                    android:textColor="@color/purple_light"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="680dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    android:elevation="8dp"
+                    android:orientation="horizontal"
+                    android:outlineAmbientShadowColor="@color/black">
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/loginDate"
+                        android:gravity="center"
+                        android:textColor="@color/purple_light"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/loginTime"
+                        android:gravity="center"
+                        android:textColor="@color/purple_light"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/logoutDate"
+                        android:gravity="center"
+                        android:textColor="@color/purple_light"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/logoutTime"
+                        android:gravity="center"
+                        android:textColor="@color/purple_light"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/historyList"
+                    android:layout_width="680dp"
+                    android:layout_height="300dp"
+                    android:background="@color/white"
+                    android:nestedScrollingEnabled="true"
+                    android:listSelector="@android:color/transparent" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/openGameHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/seeStats"
+                android:textSize="16dp"/>
+
+            <LinearLayout
+                android:id="@+id/historyTable"
+                android:layout_width="680dp"
+                android:layout_height="300dp"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/playHistory"
+                    android:layout_marginTop="60dp"
+                    android:textColor="@color/purple_light"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="680dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/white"
+                    android:layout_marginTop="20dp"
+                    android:outlineAmbientShadowColor="@color/black"
+                    android:elevation="8dp">
+                    <TextView
+                        android:layout_width="136dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:gravity="center"
+                        android:text="@string/gameMode"
+                        android:textColor="@color/purple_light"/>
+
+                    <TextView
+                        android:layout_width="136dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:gravity="center"
+                        android:text="@string/date"
+                        android:textColor="@color/purple_light"/>
+
+                    <TextView
+                        android:layout_width="136dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:gravity="center"
+                        android:text="@string/hour"
+                        android:textColor="@color/purple_light"/>
+
+                    <TextView
+                        android:layout_width="136dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/players"
+                        android:gravity="center"
+                        android:textColor="@color/purple_light"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="136dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/results"
+                        android:gravity="center"
+                        android:textColor="@color/purple_light"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/statsList"
+                    android:layout_width="680dp"
+                    android:layout_height="300dp"
+                    android:background="@color/white"
+                    android:nestedScrollingEnabled="true"
+                    android:listSelector="@android:color/transparent" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

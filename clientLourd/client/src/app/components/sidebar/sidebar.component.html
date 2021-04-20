@@ -1,0 +1,20 @@
+<div #icons class="bar">
+    <div class="icon">
+        <a id="pencil" class="active" (click)="displayPalette('pencil'); changeTools('pencil')">
+            <mat-icon class="material-icons" [ngStyle]="{'color':'black'}">create</mat-icon>
+        </a>
+        <a id="eraser" (click)="displayPalette('eraser')" (click)="changeTools('eraser')">
+            <mat-icon class="material-icons" [ngStyle]="{'color':'black'}">remove_circle_outline</mat-icon>
+        </a>
+        <a id="grid-on" (click)="displayPalette('grid')" (click)="changeTools('grid')">
+            <mat-icon class="material-icons" [ngStyle]="{'color':'black'}">grid_on</mat-icon>
+        </a>
+        <a (click)="undo()">
+            <mat-icon class="material-icons" [ngStyle]="{'color':'black'}">undo</mat-icon>
+        </a>
+        <a (click)="redo()">
+            <mat-icon class="material-icons" [ngStyle]="{'color':'black'}">redo</mat-icon>
+        </a>
+    </div>
+        <a (click)="toggleColorPalette()" class="color-box" [ngStyle]="{'background-color': this.tools.color || 'black'}"> </a>
+</div>

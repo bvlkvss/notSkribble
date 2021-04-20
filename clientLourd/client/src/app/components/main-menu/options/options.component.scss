@@ -1,0 +1,16 @@
+@import "../../../../theme.scss";
+
+
+.options{
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    justify-content: center;
+    align-content: center;
+    height: 65vh;
+    min-height: 100%;
+}
+
+.language{
+    margin: 20px;
+}

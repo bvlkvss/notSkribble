@@ -1,0 +1,12 @@
+<div class="sidebar">
+    <div class="container">
+        <button mat-button class="next" (click)="this.freeGameService.nextWord()">
+            <p class="nextText"> {{'nextWord' | translate}}
+                <br>
+                <mat-icon class="material-icons" [ngStyle]="{'color':'$textColor'}">keyboard_tab</mat-icon>
+            </p>
+        </button>
+    </div>
+    <br>
+    <br>
+</div>

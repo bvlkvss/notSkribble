@@ -1,0 +1,12 @@
+<div id="createRoom">
+    <div [formGroup]="roomNameForm">
+        <mat-form-field id="chatName" appearance="standard">
+            <mat-label class="{{this.currentUserService.getTheme()}}">{{'chatName' | translate}}</mat-label>
+            <input matInput formControlName="roomname" required>
+            <mat-error *ngIf="roomNameForm.get('roomname')?.hasError('required')">{{'required' | translate}}</mat-error>
+            <mat-error *ngIf="roomNameForm.get('roomname')?.hasError('pattern')"> {{'specialChar' | translate}} </mat-error>
+        </mat-form-field>
+    </div>
+    <button mat-raised-button class="bigButton" id="createButton" (click)="createRoom()"
+        [disabled]="this.roomNameForm.invalid">{{'bigCreate' | translate}}</button>
+</div>

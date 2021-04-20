@@ -1,0 +1,14 @@
+<div id="createRoom" [style.width.vw]="this.windowManagerService.getGamePageWidth()">
+    <div class="element">
+        {{'redoTuto' | translate}}
+    </div>
+    <br>
+    <br>
+    <div *ngIf="this.tutorialService.disableTutorialButton() && !this.tutorialService.isTutorial">
+        {{'removeDetach' | translate}}
+    </div>
+    <div class="element">
+        <button mat-raised-button class="bigButton" id="button" (click)="startTutorial()"
+            [disabled]="this.tutorialService.disableTutorialButton()">{{'startTuto' | translate}}</button>
+    </div>
+</div>

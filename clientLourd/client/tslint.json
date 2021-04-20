@@ -1,0 +1,31 @@
+{
+    "rulesDirectory": ["codelyzer", "tslint-microsoft-contrib"],
+    "rules": {
+        "deprecation": {
+            "severity": "warn"
+        },
+        "import-blacklist": [true, "rxjs/Rx"],
+        "no-output-on-prefix": true,
+        "no-inputs-metadata-property": true,
+        "no-outputs-metadata-property": true,
+        "no-host-metadata-property": true,
+        "no-input-rename": true,
+        "no-output-rename": true,
+        "no-relative-imports": [true, "allow-siblings"],
+        "use-lifecycle-interface": true,
+        "use-pipe-transform-interface": true,
+        "component-class-suffix": true,
+        "directive-class-suffix": true,
+        "quotemark": [true, "double", "avoid-escape", "avoid-template"],
+        "semicolon": [true, "always"],
+        "no-duplicate-imports": true,
+        "no-require-imports": true,
+        "member-ordering": [
+            true,
+            {
+                "order": ["static-field", "instance-field", "static-method", "instance-method"]
+            }
+        ],
+        "ordered-imports": true
+    }
+}

@@ -1,0 +1,22 @@
+<div class="page {{this.currentUserService.getThemeBack()}}" style="vertical-align: middle;">
+
+
+    <div id="wrapper">
+        <div id="title">
+            NotSkribbl.io
+            <div id="logout" *ngIf="(this.componentManagerService.currentComponent === componentType.MAINGAMEPAGE) && (!this.componentManagerService.isInGame())">
+                <button mat-raised-button id="smallButton" (click)="deconnectUser()">{{'disconnect'| translate}}</button>
+            </div>
+
+            <div id="logout" *ngIf="(this.componentManagerService.currentComponent === componentType.MAINGAMEPAGE) && (this.componentManagerService.isInGame())">
+                <button mat-raised-button id="smallButton" (click)="leaveGame()" [disabled]="this.tutorialService.isTutorial">{{'exit'| translate}} {{'game'| translate}}</button>
+            </div>
+        </div>
+    </div>
+
+
+    <app-connection *ngIf="this.componentManagerService.currentComponent === componentType.CONNECTION"></app-connection>
+    <app-sign-up *ngIf="this.componentManagerService.currentComponent === componentType.SIGNUP"></app-sign-up>
+    <app-main-game-page *ngIf="this.componentManagerService.currentComponent === componentType.MAINGAMEPAGE">
+    </app-main-game-page>
+</div>

@@ -1,0 +1,107 @@
+<div class="gameInfo">
+    <div class="column">
+
+        <label class="info" id="mode" *ngIf="isClassic()">
+            {{this.mode | translate}}</label>
+
+        <label class="info" id="mode" *ngIf="isSolo()">
+            {{'soloMode' | translate}}</label>
+
+        <label class="info" id="mode" *ngIf="isCoop()">
+            {{'coopMode' | translate}}</label>
+
+        <label class="info" id="mode" *ngIf="isBlind()">
+            {{'blindMode' | translate}}</label>
+
+        <label class="info" id="mode" *ngIf="isFree()">
+            {{'freeMode' | translate}}</label>
+
+    </div>
+    <div class="column">
+        <div class="word-box">
+            <label id="word" *ngIf="!this.gameManagerService.isArtist()">
+                <span *ngFor="let letter of this.gameManagerService.word.split('')">_ </span>
+            </label>
+            <label id="word" *ngIf="this.gameManagerService.isArtist()">
+                <span> {{this.gameManagerService.word}} </span>
+            </label>
+        </div>
+    </div>
+    <div class="column" *ngIf="!isFree()">
+        <label id="time">{{this.getDuration()}} sec</label>
+    </div>
+    <div class="column" *ngIf="!isFree()">
+        <label id="nTries">{{'triesLeft' | translate}}{{this.gameManagerService.nTries}}</label>
+    </div>
+    <div class="column" *ngIf="isClassic() || isBlind()">
+        <label id="round">Round : {{this.gameManagerService.round}}/4</label>
+    </div>
+    <div class="column" *ngIf="isSolo() || isCoop()">
+        <label id="round">{{'nWords' | translate}} {{this.soloService.totalWords}}</label>
+    </div>
+
+</div>
+<div>
+    <mat-divider></mat-divider>
+    <app-mode-classic *ngIf="isClassic() || isBlind()">
+    </app-mode-classic>
+    <app-mode-solo *ngIf="isSolo()">
+    </app-mode-solo>
+    <app-mode-coop *ngIf="isCoop()">
+    </app-mode-coop>
+    <app-mode-free *ngIf="isFree()">
+    </app-mode-free>
+
+    <div class="main-container">
+        <app-editor *ngIf="!isCanvas()"></app-editor>
+        <div class="wrapper">
+            <canvas id="preview" width="750" height="430" *ngIf="isCanvas()"></canvas>
+            <div class="teamGuess {{this.currentUserService.getTheme()}}" *ngIf="(this.gameManagerService.artist !== this.currentUserService.getUser()) && isCanvas() && this.gameManagerService.mode === 'classic'">{{'teamGuess' | translate}} {{getTeamGuessing() | translate}}</div>            
+        </div>
+    </div>
+
+    <app-transition *ngIf="isTransition()"></app-transition>
+
+    <div class="floatTL" *ngIf="this.tutorialService.isTutorial">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="900px" height="500">
+            <defs>
+                <marker id="point" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5"
+                    orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" />
+                </marker>
+
+            </defs>
+
+            <rect x="200" y="0" width="500px" height="6vh" fill="none" stroke="black" stroke-width="3px"
+                *ngIf="this.tutorialService.textShow === 4" />
+            <polyline id="arrow" points="450,60 450,450" fill="none" stroke="black" marker-start="url(#point)"
+                *ngIf="this.tutorialService.textShow === 4" display="block" stroke-width="3px"></polyline>
+            <polyline id="arrow" points="10,400 305,480" fill="none" stroke="black" marker-start="url(#point)"
+                *ngIf="this.tutorialService.textShow === 5" display="block" stroke-width="3px"></polyline>
+            <polyline id="arrow" points="6,360 305,480" fill="none" stroke="black" marker-start="url(#point)"
+                *ngIf="this.tutorialService.textShow === 8" display="block" stroke-width="3px"></polyline>
+        </svg>
+
+    </div>
+    <div *ngIf="this.tutorialService.isTutorial && this.tutorialService.textShow === 4" class="tutorial solopos1">
+        {{this.tutorialService.getTextShow() | translate}}
+        <br>
+        <button mat-raised-button (click)="this.tutorialService.actionDone = true">Next</button>
+    </div>
+    <div *ngIf="this.tutorialService.isTutorial && this.tutorialService.textShow === 5" class="tutorial solopos3">
+        {{this.tutorialService.getTextShow() | translate}}
+        <br>
+    </div>
+    <div *ngIf="this.tutorialService.isTutorial && this.tutorialService.textShow === 6" class="tutorial solopos4">
+        {{this.tutorialService.getTextShow() | translate}}
+    </div>
+    <div *ngIf="this.tutorialService.isTutorial && this.tutorialService.textShow === 7" class="tutorial solopos5">
+        {{this.tutorialService.getTextShow() | translate}}
+    </div>
+    <div *ngIf="this.tutorialService.isTutorial && this.isText8()" class="tutorial solopos6">
+        {{this.tutorialService.getTextShow() | translate}}
+        <button mat-raised-button (click)="this.tutorialService.actionDone = true">Next</button>
+
+    </div>
+
+</div>

@@ -1,0 +1,47 @@
+@import "../../../theme.scss";
+
+.bar {
+    width: 62vw;
+    height: 10vh;
+    position: fixed;
+    bottom: 6vh;
+    display: flex;
+    right: 25vw;
+}
+
+.icon {
+    display: flex;
+    justify-content: space-around;
+    width: 20vw;
+}
+
+.bar a {
+    display: block;
+    position: relative;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s ease;
+    color: white;
+    top: 10px;
+    padding: 10px;
+    color: rgb(64, 61, 85);
+    cursor: pointer;
+}
+.color-box {
+    background-color: white;
+    border: slategray 1px solid;
+    border-radius: 5px;
+}
+.active {
+    background-color: $selectedColor;
+}
+
+.icon a:hover {
+    background-color: $textColor;
+    .slidingtxt {
+        visibility: initial;
+        -webkit-transform: translateX(55px);
+        transform: translate(55px);
+    }
+}

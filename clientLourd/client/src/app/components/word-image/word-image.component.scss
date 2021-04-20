@@ -1,0 +1,50 @@
+@import "./../../../theme.scss";
+
+.chipList {
+    width: 50vw;
+}
+
+.wrapper {
+    height: 62vh;
+    overflow-y: scroll;
+    font-size: 15px;
+    text-align: center;
+}
+
+mat-radio-button {
+    padding-right: 5vw;
+}
+
+.value {
+    color: $textColor;
+    font-weight: bolder;
+}
+
+.line {
+    padding-bottom: 5px;
+}
+
+.section {
+    font-size: medium;
+    font-weight: bold;
+    color: $textColor;
+}
+
+#header {
+    font-size: large;
+    font-weight: bolder;
+    color: $textColor;
+}
+
+.formField {
+    padding: 2px;
+}
+
+#preview {
+    position: absolute;
+    left: 10vw;
+}
+
+.cancel {
+    background-color: $back;
+}

@@ -1,0 +1,27 @@
+<div class="button">
+    <button mat-button type="button" (click)="this.startDeleting()">
+        <span class="material-icons">
+            {{this.deletingMode ? 'undo' : 'cancel'}}
+        </span>
+    </button>
+</div>
+
+<mat-selection-list *ngIf="!this.deletingMode" #roomList [multiple]="false">
+    <mat-list-option class="{{this.currentUserService.getTheme()}} rooms" id="room"
+        *ngFor="let room of convoManagerService.getJoinedRooms()" [value]="room"
+        (click)="this.onClickRoom(roomList.selectedOptions.selected[0]?.value)">
+        <div class="inline">
+            {{room}}
+        </div>
+    </mat-list-option>
+</mat-selection-list>
+
+<div *ngIf="this.deletingMode" class="delete">
+    <mat-checkbox #checkBox class="checkB {{this.currentUserService.getTheme()}}" id={{room}}
+        *ngFor="let room of convoManagerService.getJoinedRooms()" (click)="onClickCheck(checkBox.id)"
+        [disabled]="isGeneral(checkBox.id) || isGameRoom(room)">{{room}}</mat-checkbox>
+</div>
+
+<div *ngIf="this.deletingMode" class="button" id="delete">
+    <button mat-button class="smallButton" id="quit" type="button" (click)="quitRoom()">{{'exit' | translate}}</button>
+</div>

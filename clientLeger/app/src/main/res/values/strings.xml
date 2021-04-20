@@ -1,0 +1,230 @@
+<resources>
+    //app title
+    <string name="app_name" translatable="false">NotSkribbl.io</string>
+
+    //login
+    <string name="connexion">Connexion</string>
+    <string name="incorrect_login">Nom d\'utilisateur ou mot de passe incorrect</string>
+    <string name="connect">Se Connecter</string>
+    <string name="create_in_connect"><u>Créer un compte</u></string>
+    <string name="alreadyConnected">Vous êtes déjà connecté !</string>
+    <string name="errorServer">Une erreur s\'est produite</string>
+    <string name="gameDoesntExist">La partie n\existe plus !</string>
+
+    //create an account
+    <string name="name">Prénom</string>
+    <string name="lastname">Nom</string>
+    <string name="confirmpassword">Confirmer mot de passe</string>
+    <string name="submit">Soumettre</string>
+    <string name="avatar" translatable="false">Avatar</string>
+    <string name="create_account">Créer un compte</string>
+    <string name="connexion_in_create"><u>Retour</u></string>
+    <string name="existing_user">Le nom d\'utilisateur existe déjà</string>
+    <string name="fail">Le création du compte a échouée</string>
+    <string name="pwerror">Les mots de passe ne sont pas identiques</string>
+
+    //login/create common
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="password">Mot de passe</string>
+
+
+    //main menu
+    <string name="main_menu" translatable="false">Menu</string>
+    <string name="play">Jouer</string>
+    <string name="pairs">Pairs mot-image</string>
+    <string name="profile">Profil</string>
+    <string name="tutorial">Tutoriel</string>
+    <string name="options" translatable="false">Options</string>
+    <string name="logout"><u>Déconnexion</u></string>
+
+    //chat
+    <string name="chat">Clavardage</string>
+    <string name="join">Joindre</string>
+    <string name="active" translatable="false">Conversations</string>
+    <string name="create_chat">Créer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="createchatroom">Nom du canal:</string>
+    <string name="createchatroomSuccess">Le canal a été crée avec succès!</string>
+    <string name="createchatroomFail">Ce canal existe déjà!</string>
+    <string name="quitRoom"><font fgcolor='#FFFF2D2D'>Quitter le chat</font></string>
+    <string name="quitPopup">Êtes-vous sûre de vouloir quitter le chat "%1$s"</string>
+    <string name="cancel">Annuler</string>
+    <string name="quitButton">Quitter</string>
+    <string name="hint">INDICE</string>
+
+    <string name="endgameroom">Un utilisateur s\'est deconnecté.\n\nFin de la partie.</string>
+
+    //serverDown
+    <string name="serverDown">Vous avez été déconnecté ! Le serveur ne répond plus !</string>
+
+    //play menu
+    <string name="mode" translatable="false">Mode</string>
+    <string name="modeTitle">Mode de jeu</string>
+    <string name="difficultyTitle">Difficulté</string>
+    <string name="langTitle">Langue</string>
+    <string name="nameGameroom">Nom de la salle à créer</string>
+    <string name="create">Créer</string>
+    <string name="createError">Une erreur est survenue.</string>
+    <string name="virtualPlayers">Joueurs Virtuels</string>
+    <string name="addVirtualPlayers">Ajouter le joueur virtuel</string>
+    <string name="removeVirtualPlayers">Enlever le joueur virtuel</string>
+    <string name="nice">Gentil</string>
+    <string name="rude">Méchant</string>
+    <string name="arrogant">Arrogant</string>
+    <string name="search">CHERCHER</string>
+    <string name="createMAJ">CRÉER</string>
+    <string name="playersList">Joueurs:</string>
+    <string name="availableRooms">Salles disponibles</string>
+
+    <string-array name="mode_array">
+        <item>Classique</item>
+        <item>Solo</item>
+        <item>Coopératif</item>
+        <item>Aveugle</item>
+        <item>Libre</item>
+    </string-array>
+
+    <string-array name="difficulty_array">
+        <item>Facile</item>
+        <item>Moyen</item>
+        <item>Difficile</item>
+    </string-array>
+
+    <string-array name="lang_array">
+        <item>Français</item>
+        <item>Anglais</item>
+    </string-array>
+
+    <string-array name="light_array">
+        <item>Clair</item>
+        <item>Sombre</item>
+    </string-array>
+
+    <string-array name="dark_array">
+        <item>Sombre</item>
+        <item>Clair</item>
+    </string-array>
+
+    <string-array name="french_array">
+        <item>Français</item>
+        <item>English</item>
+    </string-array>
+
+    <string-array name="english_array">
+        <item>English</item>
+        <item>Français</item>
+    </string-array>
+    //game modes
+    <string name="classicMode">Mode Classique</string>
+    <string name="freeMode">Mode libre</string>
+    <string name="blindMode">Mode aveugle</string>
+    <string name="soloMode">Mode solo</string>
+    <string name="coopMode">Mode coopératif</string>
+
+    //Game page
+    <string name="quit">Quitter la partie</string>
+    <string name="pencilWidth">Taille Crayon</string>
+    <string name="eraserWidth">Taille Efface</string>
+    <string name="gridWidth">Taille Grille</string>
+    <string name="remainingTries">Essais restants: %1$s</string>
+    <string name="remainingTriesX">Essais restants: X</string>
+    <string name="guessingTeam">Équipe Devinante: %1$s</string>
+    <string name="red">Rouge</string>
+    <string name="blue">Bleu</string>
+
+    //solo
+    <string name="wordsGuessed">Mots: %1$s</string>
+
+
+    //color picker
+    <string name="pick">Choisir</string>
+    <string name="close">Fermer</string>
+    <string name="start">Commencer</string>
+
+    //Free game mode
+    <string name="nextWord">Mot Suivant</string>
+
+    //options menu
+    <string name="changeLang">Changer</string>
+    <string name="appPref">Langue de l\'application</string>
+    <string name="appTheme">Thème de l\'application</string>
+
+    //dialogs
+    <string name="gameCreationFailed">Échec de la création de la partie.</string>
+    <string name="roundDone">Le mot est: %1$s \nLe tour est fini!</string>
+    <string name="gameDone">La partie est finie! Le gagnant est %1$s</string>
+    <string name="gameDoneCoopSolo">Le temps est écoulé.\n\nLa partie est finie!</string>
+    <string name="gameDoneEqual">La partie est finie! Il y a eu égalité!</string>
+    <string name="answerFound">Réponse trouvée!</string>
+    <string name="replyRight">Droit de réplique!</string>
+
+    //language
+    <string name="restart">Cette action entrainera un redémarrage de l\'application.\nÊtes-vous sûr de vouloir continuer?</string>
+
+    //profile
+    <string name="firstName"><b>Prénom:</b> %1$s</string>
+    <string name="lastName"><b>Nom:</b> %1$s</string>
+    <string name="usernameProfile"><b>Nom d\'utilisateur:</b> %1$s</string>
+    <string name="gamePlayed"><b>Nombre de parties jouées en modes classique et aveugle:</b> %1$s</string>
+    <string name="victoryRate">Pourcentage de victoires en mode classique et aveugle: %1$s</string>
+    <string name="averageTime"><b>Temps moyen d\'une partie:</b> %1$s</string>
+    <string name= "avggametimecomposes">%1$s jours %2$s heures %3$s minutes %4$s secondes</string>
+    <string name="totalTime"><b>Temps total joué:</b> %1$s</string>
+    <string name="connexionHistory">Historique de connexion/déconnexion</string>
+    <string name="gameHistory">Historique de parties jouées</string>
+    <string name="userProfile">Profil utilisateur</string>
+    <string name="generalData">Informations générales</string>
+    <string name="stats">Statistique de jeu</string>
+    <string name="seeConnection">Voir les connexions/déconnexions</string>
+    <string name="seeStats">Voir toutes les statistiques de jeu</string>
+    <string name="hideConnection">Fermer les connexions/déconnexions</string>
+    <string name="hideStats">Fermer toutes les statistiques de jeu</string>
+    <string name="connectDisconnect">Connexion et déconnexion</string>
+    <string name="playHistory">Historique des jeux</string>
+    <string name="loginDate">Date de connexion</string>
+    <string name="loginTime">Temps de connexion</string>
+    <string name="logoutDate">Date de déconnexion</string>
+    <string name="logoutTime">Temps de déconnexion</string>
+    <string name="gameMode">Mode de jeu</string>
+    <string name="date">Date</string>
+    <string name="hour">Heure</string>
+    <string name="players">Joueurs</string>
+    <string name="results">Résultats</string>
+    <string name="soloScore">Meilleur score solo: %1$s points</string>
+
+    //theme
+    <string name="chooseTheme">Veuillez choisir un thème</string>
+    <string name="lightTheme">Thème clair</string>
+    <string name="darkTheme">Thème sombre</string>
+
+    //tuto
+    <string name="nextButton">Suivant</string>
+    <string name="backButton">Retour</string>
+    <string name="welcomeMessageHeader">Bienvenue à NotSkribbl.io!</string>
+    <string name="welcomeMessage">NotSkribbl.io est un jeu multiplateforme où vous pourrez mettre à l\'épreuve vos talents de dessinateur. \n\nAppuyez sur suivant pour apprendre comment jouer! </string>
+    <string name="tutoheader2">Menu principal</string>
+    <string name="tutop2">À partir du menu principal, appuyez sur Jouer pour créer ou rejoindre une partie. \n\nAppuyez sur Profil pour voir vos statistiques. \n\nAppuyez sur Options pour gérer vos préférences.</string>
+    <string name="tutoheader3">Clavardage</string>
+    <string name="tutop3">Vous avez toujours accès au clavardage.\n\nDans conversations, accédez à vos canaux actifs.\n\nDans Joindre, voyez les canaux dont vous pouvez faire partie.\n\nVous pouvez également créer votre propre canal dans Créer!</string>
+    <string name="tutoheader4">Jouer</string>
+    <string name="tutop4">Pour jouer, sélectionnez votre mode de jeu, une difficulté et la langue que vous souhaitez.\n\n Cliquez sur Joindre ou sur Créer pour être amené dans la salle d\'attente.\n\n Une fois le nombre de joueurs suffisant, le créateur pourra débuter la partie! </string>
+    <string name="tutop5">Lorsqu\'une partie débute, un nouveau canal privé va s\'ajouter dans le clavardage. C\'est à cet endroit que vous devrez saisir le mot associé au dessin.\n\nSi c\'est à votre tour de dessiner, les outils se trouvent en bas de la zone de dessin, et le mot à dessiner se trouve en haut.</string>
+    <string name="tutoheader6">Modes de jeu</string>
+    <string name="tutop6">Explorons les différents modes de jeu dans lesquels vous pourrez défier vos amis.</string>
+    <string name="tutoheader7">Mode Classique</string>
+    <string name="tutop7">Formez une équipe et affrontez en une autre en 2 contre 2!\n\nLorsqu\'un joueur dessine, son partenaire doit deviner le mot avant que le chrono expire ou que ses essais terminent!\n\nSi le mot n\'est pas deviné, l\'équipe adverse aura un droit de réplique!</string>
+    <string name="tutoheader8">Mode Aveugle</string>
+    <string name="tutop8">Tout comme le mode classique, ou presque..!\n\nLe joueur qui dessine ne voit pas son dessin!</string>
+    <string name="tutoheader9">Mode Solo</string>
+    <string name="tutop9">Envie de jouer seul? Le mode solo est parfait.\n\nEssayez de deviner tous les mots qu\'un joueur virtuel dessine avant que le temps ou que vos essais soient expirés!\n\nSi vous devinez un mot, du temps se rajoute à votre chrono.\n\nDevinez le plus de mots possibles!</string>
+    <string name="tutoheader10">Mode Coopératif</string>
+    <string name="tutop10">Comme le Mode Solo, sauf que vous ne serez pas seul!\n\nJoignez une équipe et tentez de deviner le plus de mots ensemble!</string>
+    <string name="tutoheader11">Mode Libre</string>
+    <string name="tutop11">Besoin de calme et de sérénité? Besoin de laisser parler vos talents d\'artiste? Heureusement qu\'il y a le mode libre!\n\nDessinez le mot affiché sans contrainte de temps et sans.. stress.</string>
+    <string name="tutoheader12">Pssst!</string>
+    <string name="tutop12">Quand un joueur virtuel dessine, vous pouvez lui demander un indice en appuyant sur le bouton dédié!</string>
+    <string name="tutoheaderend">C\'est la fin!</string>
+    <string name="tutopend">Vous semblez prêt(e), allez défier vos amis dès maintenant!</string>
+
+</resources>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainMenu">
+
+
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"
+        android:textColor="@color/white"
+        android:background="@color/purple_light"
+        android:padding="5dp"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif"
+        android:text="NotSkribbl.io"
+        android:textColor="@color/purple_light"
+        android:textSize="75sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CLMenu"
+        android:layout_width="745dp"
+        android:layout_height="595dp"
+        android:background="@drawable/border_layout"
+        android:clickable="false"
+        android:elevation="8dp"
+        android:soundEffectsEnabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.736">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clheader"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/menutitle"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/white"
+                android:paddingLeft="25dp"
+                android:paddingTop="5dp"
+                android:text="@string/main_menu"
+                android:gravity="center_horizontal"
+                android:textColor="@color/purple_light"
+                android:textSize="20sp"
+                android:insetBottom="-1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvplay"
+                android:layout_width="186.25dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/active_tab"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/play"
+                android:textColor="@color/purple_light"
+                app:layout_constraintBottom_toBottomOf="@+id/menutitle"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvprofil"
+                android:layout_width="186.25dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/header_border"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/profile"
+                app:layout_constraintBottom_toBottomOf="@+id/menutitle"
+                app:layout_constraintStart_toEndOf="@+id/tvplay" />
+
+
+
+            <TextView
+                android:id="@+id/tvtutorial"
+                android:layout_width="186.25dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/header_border"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/tutorial"
+                app:layout_constraintBottom_toBottomOf="@+id/menutitle"
+                app:layout_constraintStart_toEndOf="@+id/tvprofil" />
+
+
+            <TextView
+                android:id="@+id/tvoptions"
+                android:layout_width="186.25dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/header_border"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/options"
+                app:layout_constraintBottom_toBottomOf="@+id/menutitle"
+                app:layout_constraintStart_toEndOf="@+id/tvtutorial" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <fragment
+            android:id="@+id/playFrag"
+            android:layout_width="match_parent"
+            android:layout_height="525dp"
+            android:name="com.example.client_leger.PlayMenuFragment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clheader"/>
+        <fragment
+            android:id="@+id/profileFrag"
+            android:layout_width="match_parent"
+            android:layout_height="525dp"
+            android:visibility="gone"
+            android:name="com.example.client_leger.ProfileFragment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clheader"/>
+        <fragment
+            android:id="@+id/tutoFrag"
+            android:layout_width="match_parent"
+            android:layout_height="525dp"
+            android:visibility="gone"
+            android:name="com.example.client_leger.TutorialFragment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clheader"/>
+        <fragment
+            android:id="@+id/optionsFrag"
+            android:layout_width="match_parent"
+            android:layout_height="525dp"
+            android:visibility="gone"
+            android:name="com.example.client_leger.OptionsFragment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clheader"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <fragment
+        android:id="@+id/chatFrame"
+        android:name="com.example.client_leger.RoomsChatFragment"
+        android:layout_width="351dp"
+        android:layout_height="595dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.736"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,28 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<div id="attribute">
+    <div class="grid">
+        <div id="slideContainer" *ngIf="onToolChange('lineWidth')">
+            <p id="header" for="volume">{{'thickness' | translate}}</p>
+            <input class="size-slider" type="range" (change)="setLineWidth($event.target.value)" [value]="widthValue"
+                min="1" max="100" />
+        </div>
+        <div id="slideContainer" *ngIf="onToolChange('squareSize')">
+            <p id="header" for="volume">{{'squareSize' | translate}}</p>
+            <input class="size-slider" type="range" (change)="setSquareSize($event.target.value)" [value]="widthValue"
+                min="1" max="100" />
+        </div>
+        <div id="slideContainer" *ngIf="onToolChange('opacity')">
+            <p id="header" for="volume">{{'opacity' | translate}}</p>
+            <input class="size-slider" type="range" (change)="setOpacity($event.target.value)" [value]="widthValue"
+                min="1" max="100" />
+        </div>
+        <div id="slideContainer" *ngIf="onToolChange('eraserWidth')">
+            <p id="header" for="volume">{{'thickness' | translate}}</p>
+            <input class="size-slider" type="range" (change)="setLineWidth($event.target.value)" [value]="widthValue"
+                min="5" max="100" />
+        </div>
+    </div>
+</div>

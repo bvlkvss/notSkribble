@@ -1,0 +1,146 @@
+<div class="wrapper" [style.width.vw]="this.windowManagerService.getGamePageWidth()">
+    <h2>{{'profilUser' | translate}}</h2>
+    <h3 class="{{this.currentUserService.getThemeTitle()}}">{{'genInfo' | translate}}</h3>
+    <div class="container">
+        <div class="info">
+            <p>
+                <span class="label">{{'fname' | translate}} : </span>
+                <span>{{this.currentUserService.firstName}}</span>
+            </p>
+            <p>
+                <span class="label">{{'lname' | translate}} : </span>
+                <span>{{this.currentUserService.lastName}}</span>
+            </p>
+            <p>
+                <span class="label">{{'username' | translate}} : </span>
+                <span>{{this.currentUserService.username}}</span>
+            </p>
+        </div>
+        <div class="avatar">
+            <img [src]="this.avatarService.getUserAvatar()">
+        </div>
+    </div>
+    <h3 class="{{this.currentUserService.getThemeTitle()}}">{{'gameStats' | translate}}</h3>
+    <p>
+        <span class="label">{{'nGamesPlayed' | translate}} : </span>
+        <span>{{this.currentUserService.nGamesPlayed}}</span>
+    </p>
+    <p>
+        <span class="label">{{'percentageWins' | translate}} : </span>
+        <span>{{this.currentUserService.percentageWins}} %</span>
+    </p>
+    <p>
+        <span class="label">{{'averageTimeGame' | translate}} : </span>
+        <span *ngIf="this.currentUserService.averageTimeGame[0] !== 0">
+            {{this.currentUserService.averageTimeGame[0]}} {{'days' | translate}}
+        </span>
+        <span *ngIf="this.currentUserService.averageTimeGame[1] !== 0">
+            {{this.currentUserService.averageTimeGame[1]}} {{'hours' | translate}}
+        </span>
+        <span *ngIf="this.currentUserService.averageTimeGame[2] !== 0">
+            {{this.currentUserService.averageTimeGame[2]}} {{'minutes' | translate}}
+        </span>
+        <span *ngIf="this.currentUserService.averageTimeGame[3] !== 0">
+            {{this.currentUserService.averageTimeGame[3]}} {{'second' | translate}}
+        </span>
+        <span *ngIf="this.currentUserService.isNoGamePlayed()">
+            {{'noGamePlayed' | translate}}
+        </span>
+    </p>
+    <p>
+        <span class="label">{{'totalTimeplaying' | translate}} : </span>
+        <span *ngIf="this.currentUserService.averageTimeGame[0] !== 0">
+            {{this.currentUserService.totalTimeplaying[0]}} {{'days' | translate}}
+        </span>
+        <span *ngIf="this.currentUserService.averageTimeGame[1] !== 0">
+            {{this.currentUserService.totalTimeplaying[1]}} {{'hours' | translate}}
+        </span>
+        <span *ngIf="this.currentUserService.averageTimeGame[2] !== 0">
+            {{this.currentUserService.totalTimeplaying[2]}} {{'minutes' | translate}}
+        </span>
+        <span *ngIf="this.currentUserService.averageTimeGame[3] !== 0">
+            {{this.currentUserService.totalTimeplaying[3]}} {{'second' | translate}}
+        </span>
+        <span *ngIf="this.currentUserService.isNoGamePlayed()">
+            {{'noGamePlayed' | translate}}
+        </span>
+    </p>
+    <p>
+        <span class="label">{{'bestScoreSolo' | translate}} : </span>
+        <span>{{this.currentUserService.bestScoreSolo}} points</span>
+    </p>
+    <div>
+        <button mat-raised-button (click)="isConnection = !isConnection" class="larger bigButton ">
+            <span *ngIf="isConnection">{{'hideConnect' | translate}}</span>
+            <span *ngIf="!isConnection">{{'showConnect' | translate}}</span>
+        </button>
+        <br>
+    </div>
+    <div *ngIf="isConnection">
+        <h3>{{'connectDeconect' | translate}}</h3>
+        <table mat-table [dataSource]="this.currentUserService.connections" class="mat-elevation-z8" align="center">
+
+            <ng-container matColumnDef="dateConnection">
+                <th mat-header-cell *matHeaderCellDef>{{'dateConnect' | translate}}</th>
+                <td mat-cell *matCellDef="let element"> {{element.dateConnection}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="timeConnection">
+                <th mat-header-cell *matHeaderCellDef>{{'timeConnect' | translate}}</th>
+                <td mat-cell *matCellDef="let element"> {{element.timeConnection}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateDeconnection">
+                <th mat-header-cell *matHeaderCellDef>{{'dateDeconnect' | translate}}</th>
+                <td mat-cell *matCellDef="let element"> {{element.dateDeconnection}} </td>
+            </ng-container>
+            <ng-container matColumnDef="timeDeconnection">
+                <th mat-header-cell *matHeaderCellDef> {{'timeDeconnect' | translate}} </th>
+                <td mat-cell *matCellDef="let element"> {{element.timeDeconnection}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsConnection"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsConnection;"></tr>
+        </table>
+    </div>
+    <div>
+        <br>
+        <button mat-raised-button (click)="isGame = !isGame" class="larger bigButton" [disabled]="this.currentUserService.isNoGamePlayed()">
+            <span *ngIf="isGame">{{'hideGames' | translate}}</span>
+            <span *ngIf="!isGame">{{'showGames' | translate}}</span>
+        </button>
+    </div>
+    <div *ngIf="isGame">
+        <h3>{{'historyGames' | translate}}</h3>
+        <table mat-table [dataSource]="this.currentUserService.historyGames" class="mat-elevation-z8" align="center">
+
+            <ng-container matColumnDef="mode">
+                <th mat-header-cell *matHeaderCellDef>{{'gameMode' | translate}}</th>
+                <td mat-cell *matCellDef="let element"> {{element.mode | translate}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>{{'date' | translate}}</th>
+                <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="time">
+                <th mat-header-cell *matHeaderCellDef>{{'hour' | translate}}</th>
+                <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+            </ng-container>
+            <ng-container matColumnDef="players">
+                <th mat-header-cell *matHeaderCellDef> {{'namePlayers' | translate}} </th>
+                <td mat-cell *matCellDef="let element">
+                    <p *ngFor="let player of element.players">{{player}}</p>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="result">
+                <th mat-header-cell *matHeaderCellDef> {{'result' | translate}} </th>
+                <td mat-cell *matCellDef="let element"> {{element.result}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsGame"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsGame;"></tr>
+        </table>
+    </div>
+</div>

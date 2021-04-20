@@ -1,0 +1,83 @@
+@import "./../../../../../theme.scss";
+
+
+.wrapper {
+    position: relative;
+    height: 87vh;
+    min-height: 100%;
+    width: 95vw;
+
+}
+
+.typeMessage {
+    position: absolute;
+    bottom: 0;
+}
+
+.messages {
+    overflow-y: auto;
+    height: 540px;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.message {
+    padding-right: 5px;
+}
+
+.message.notpriv {
+    width: 350px;
+}
+
+.message.priv {
+    width: 275px;
+}
+
+.room-header {
+    background-color: $textColor;
+    color: white;
+    padding: 3px;
+    display: grid;
+    grid-template-columns: 16vw 61vw 16vw;
+    justify-content: center;
+    vertical-align: middle;
+    height: 7vh;
+}
+
+.name{
+    text-align: center;
+    padding: 2px;
+    display: table-cell;
+    vertical-align: middle;
+    justify-content: center;
+    align-content: center;
+    font-weight: bold;
+    font-size: medium;
+}
+
+li p {
+    margin: 0;
+    padding: 0;
+}
+
+.returnChat{
+    border: 1px solid #ccc;
+    float: left;
+    padding: 2px;
+}
+
+.history{
+    border: 1px solid #ccc;
+    float: right;
+}
+
+.hint {
+    padding-left: 20px;
+}
+
+.hintButton {
+    background-color: $success;
+    color: white;
+    border-radius: 25px;
+    width: 75px;    
+}

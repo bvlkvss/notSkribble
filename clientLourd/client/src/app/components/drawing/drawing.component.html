@@ -1,0 +1,7 @@
+<div id="canvas-container" #resizeContainer [style.width.px]="width" [style.height.px]="height" #container>
+    <canvas id="canvas" #baseCanvas [attr.width]="sizeScreenWidth" [attr.height]="sizeScreenHeight"></canvas>
+    <canvas id="previewLayer" #previewCanvas [attr.width]="sizeScreenWidth" [attr.height]="sizeScreenHeight"></canvas>
+    <canvas id="gridLayer" #gridCanvas [attr.width]="sizeScreenWidth" [attr.height]="sizeScreenHeight"></canvas>
+    <div class="blind" *ngIf="this.classicService.getIsBlind() && this.gameManagerService.isArtist()" [attr.width]="sizeScreenWidth" [attr.height]="sizeScreenHeight"></div>
+    <div class="teamGuess {{this.currentUserService.getTheme()}}" *ngIf="this.gameManagerService.artist !== this.currentUserService.getUser()">{{'teamGuess' | translate}} {{getTeamGuessing() | translate}}</div>
+</div>

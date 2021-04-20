@@ -1,0 +1,140 @@
+@import "../../../theme.scss";
+
+.gameInfo {
+    content: "";
+    clear: both;
+    width: 62vw;
+    height: 6vh;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.column {
+    display: inline-block;
+    text-align: center;
+}
+
+#mode {
+    font-size: x-large;
+    color:  rgb(108,99,255);
+    padding-right: 5vw;
+    text-align: right;
+    font-weight: bolder;
+}
+
+#word{
+    border: 3px solid #ccc;
+    color:  rgb(108,99,255);
+    font-size: large;
+    font-weight: bolder;
+    padding: 3px;
+}
+
+.word-box {
+    padding-right: 7vw;
+}
+
+#time{
+    align-self: center;
+    font-size: large;
+    padding-right: 5vw;
+}
+
+#round{
+    font-size: medium;
+    padding-left: 2px;
+}
+
+#nTries{
+    padding-right: 3vw;
+}
+
+.main-container {
+    height: 70vh;
+    float: right;
+    left: 15vw;
+    display: flex;
+    justify-content: center;
+}
+
+canvas {
+    width: 750px;
+    height: 430px;
+    border: 5px solid $textColor;
+}
+
+.floatTL{
+    position:absolute;
+    top: 14px;
+    left: 150px;
+}
+
+.solopos1 {
+    position: fixed;
+    top: 70%;
+    width: 15vw;
+    height: 19vh;
+    border-radius: 15px;
+    left: 30%;
+    padding: 4px;
+}
+
+.solopos3 {
+    position: fixed;
+    top: 73%;
+    width: 15vw;
+    height: 10vh;
+    border-radius: 15px;
+    left: 28%;
+    padding: 4px;
+}
+
+.solopos2 {
+    position: fixed;
+    top: 72%;
+    width: 15vw;
+    height: 19vh;
+    border-radius: 15px;
+    left: 48%;
+}
+
+.solopos4 {
+    position: fixed;
+    top: 72%;
+    width: 15vw;
+    height: 14vh;
+    border-radius: 15px;
+    left: 47vw;
+    padding: 4px;
+}
+
+.solopos5 {
+    position: fixed;
+    top: 79%;
+    width: 15vw;
+    height: 11vh;
+    border-radius: 15px;
+    left: 748px;
+    padding: 4px;
+}
+
+.solopos6 {
+    position: fixed;
+    top: 70%;
+    width: 15vw;
+    height: 13vh;
+    border-radius: 15px;
+    left: 29%;
+    padding: 4px;
+}
+
+.wrapper {
+    display: block;
+}
+
+.teamGuess{
+    top: 73vh;
+    width: 750px;
+    position: absolute;
+}

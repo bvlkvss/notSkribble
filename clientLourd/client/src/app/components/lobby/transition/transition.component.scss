@@ -1,0 +1,13 @@
+.countDown{
+    display: flex;
+    z-index: 1;
+    height: 80vh;
+    width: 100vw;
+    background-color: rgba($color: #000000, $alpha: 0.75);
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+}

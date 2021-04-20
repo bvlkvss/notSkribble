@@ -1,0 +1,7 @@
+<div class="main-container {{this.currentUserService.getTheme()}}" data-backdrop="static" data-keyboard="false" >
+    <button mat-raised-button class="bigButton button" (click)="saveDrawing()" *ngIf="this.gameManagerService.isArtist()">{{'save' | translate}}</button>
+    <button mat-raised-button class="bigButton button" (click)="close()" *ngIf="!this.gameManagerService.isArtist()">{{'close' | translate}}</button>
+
+    <app-editor *ngIf="this.gameManagerService.isArtist()"></app-editor>
+    <div id="preview"></div>
+</div>

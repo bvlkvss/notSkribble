@@ -1,0 +1,26 @@
+@import "./../../../theme.scss";
+
+.backButton {
+    background-color: $back;
+}
+
+#getRooms{
+    float: right;
+}
+
+.list{
+    border: black;
+}
+
+.gameInfo{
+    display: inline-block;
+}
+
+#players{
+    float: right;
+}
+
+#playerName{
+    float: right;
+    margin-right: 10px;
+}

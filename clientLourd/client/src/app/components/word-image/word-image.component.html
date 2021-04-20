@@ -1,0 +1,154 @@
+<div class="wrapper" [style.width.vw]="this.windowManagerService.getGamePageWidth()">
+    <p id="header">{{'wordImg' | translate}}</p>
+    <form [formGroup]="wordForm">
+
+        <!-- word  -->
+        <mat-form-field class="formField" appearance="outline">
+            <mat-label class="{{this.currentUserService.getTheme()}}"> {{'word' | translate}} </mat-label>
+            <input matInput class="{{this.currentUserService.getTheme()}}" formControlName="name" required>
+            <mat-error *ngIf="wordForm.get('name')?.hasError('required')">{{'required' | translate}}</mat-error>
+        </mat-form-field>
+        <br>
+
+        <!-- language  -->
+        <p class="section"> {{'language' | translate}}</p>
+        <mat-radio-group aria-label="Select an option" formControlName="language" required>
+            <mat-radio-button class="{{this.currentUserService.getTheme()}}" value="fr">{{'french' | translate}}</mat-radio-button>
+            <mat-radio-button class="{{this.currentUserService.getTheme()}}" value="en">{{'english' | translate}}</mat-radio-button>
+        </mat-radio-group>
+        <mat-error *ngIf="wordForm.get('language')?.hasError('required')">{{'required' | translate}}</mat-error>
+
+        <!-- hints  -->
+        <mat-form-field class="chipList" appearance="outline">
+            <mat-label class="{{this.currentUserService.getTheme()}}">{{'hints' | translate}}</mat-label>
+            <mat-chip-list #chipList id="chipList" aria-label="Hints" formControlName="hints" required>
+                <mat-chip *ngFor="let hint of hints" [selectable]="selectable" [removable]="removable"
+                    (removed)="removeHint(hint)">
+                    {{hint}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input placeholder="Nouveau indice" [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addHint($event)">
+            </mat-chip-list>
+            <mat-error *ngIf="wordForm.get('hints')?.hasError('required')">{{'required' | translate}}</mat-error>
+        </mat-form-field>
+        <hr class="style-two line">
+
+        <!-- difficulty -->
+        <p class="section"> {{'difficulty' | translate}}</p>
+        <mat-radio-group aria-label="Select an option" formControlName="difficulty" required
+            (change)="changeRadioText()">
+            <mat-radio-button value="easy">{{'easy' | translate}}</mat-radio-button>
+            <mat-radio-button value="mid">{{'normal' | translate}}</mat-radio-button>
+            <mat-radio-button value="hard">{{'hard' | translate}}</mat-radio-button>
+        </mat-radio-group>
+        <mat-error *ngIf="wordForm.get('difficulty')?.hasError('required')">{{'required' | translate}}</mat-error>
+        <p>
+            {{'drawSpeed' | translate}} <span class="value">{{this.difficultyValues.speed}}</span>{{'second' |
+            translate}}<br>
+            {{'time' | translate}}<span class="value"> {{this.difficultyValues.time}}
+            </span>{{'second' | translate}}<br>
+            {{'tries' | translate}}<span class="value">{{this.difficultyValues.tries}}
+            </span>
+            {{'try' | translate}}
+        </p>
+
+
+        <hr class="style-two line">
+
+        <!-- drawing -->
+        <p class="section"> {{'imgSource' | translate}} </p>
+        <mat-radio-group aria-label="Select an option" formControlName="drawing">
+            <mat-radio-button value="draw">{{'drawImg' | translate}}</mat-radio-button>
+            <mat-radio-button value="insert">{{'insertImg' | translate}}</mat-radio-button>
+        </mat-radio-group>
+        <br>
+        <br>
+        <button mat-raised-button class="bigButton" (click)="openDrawing()"
+            *ngIf="this.wordForm.get('drawing')?.value === 'draw'">{{'click2draw' | translate}}</button>
+
+        <!-- options to insert image -->
+        <div *ngIf="this.wordForm.get('drawing')?.value === 'insert'">
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label class="{{this.currentUserService.getTheme()}}">{{'color' | translate}}</mat-label>
+                <mat-select formControlName="color" name="color">
+                    <mat-option class="{{this.currentUserService.getTheme()}}" *ngFor="let color of colorsMap.keys()" [value]="colorsMap.get(color)">
+                        {{color | translate}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="wordForm.get('color')?.hasError('required')">{{'required'| translate}}</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label class="{{this.currentUserService.getTheme()}}">{{'bkgdColor' | translate}}</mat-label>
+                <mat-select formControlName="bgColor" name="bgColor">
+                    <mat-option class="{{this.currentUserService.getTheme()}}" *ngFor="let color of colorsMap.keys()" [value]="colorsMap.get(color)">
+                        {{color | translate}}
+                    </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="wordForm.get('bgColor')?.hasError('required')">{{'required'| translate}}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label class="{{this.currentUserService.getTheme()}}">{{'blackThreshold' | translate}}</mat-label>
+                <input class="{{this.currentUserService.getTheme()}}" matInput formControlName="threshold" type="number" required min="0" max="255">
+                <mat-error *ngIf="wordForm.get('threshold')?.hasError('required')">{{'required'| translate}}</mat-error>
+                <mat-error *ngIf="wordForm.get('threshold')?.hasError('min')">{{'numberSmall'| translate}}</mat-error>
+                <mat-error *ngIf="wordForm.get('threshold')?.hasError('max')">{{'numberBig'| translate}}</mat-error>
+            </mat-form-field>
+            <br>
+            <!-- image -->
+            <mat-label class="{{this.currentUserService.getTheme()}}"> {{'addImage' | translate}} </mat-label>
+            <input class="{{this.currentUserService.getTheme()}}" id="imageUpload" formControlName="image" type="file" accept=".png, .jpg, .bmp, .jpeg" required
+                (change)="loadImage($event)">
+            <mat-error *ngIf="wordForm.get('image')?.hasError('required')">{{'required'| translate}}</mat-error>
+
+        </div>
+        <br>
+        <br>
+        <!-- preview -->
+        <button mat-raised-button class="bigButton" (click)="preview()" [disabled]="!canPreview()">{{'preview'|
+            translate}}</button>
+
+
+        <!-- Mode -->
+        <hr class="style-two line">
+        <p class="section">{{'display' | translate}}</p>
+        <mat-radio-group aria-label="Select an option" formControlName="mode">
+            <mat-radio-button value="conventional" *ngIf="!isInsertImage()">{{'conv' | translate}} </mat-radio-button>
+            <mat-radio-button value="random">{{'rand' | translate}}</mat-radio-button>
+            <mat-radio-button value="panoramic">{{'pan' | translate}}</mat-radio-button>
+            <mat-radio-button value="center">{{'center' | translate}}</mat-radio-button>
+        </mat-radio-group>
+        <br>
+        <br>
+        <!-- options of mode -->
+        <div *ngIf="this.wordForm.get('mode')?.value === 'panoramic'">
+            <p>{{'panOpt' | translate}}</p>
+            <mat-radio-group aria-label="Select an option" formControlName="panoramic">
+                <mat-radio-button value="left">{{'l2r' | translate}}</mat-radio-button>
+                <mat-radio-button value="right">{{'r2l' | translate}}</mat-radio-button>
+                <mat-radio-button value="bottom">{{'b2t' | translate}}</mat-radio-button>
+                <mat-radio-button value="top">{{'t2b' | translate}}</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <div *ngIf="this.wordForm.get('mode')?.value === 'center'">
+            <p>{{'cenOpt' | translate}}</p>
+            <mat-radio-group aria-label="Select an option" formControlName="center">
+                <mat-radio-button value="inside">{{'in2ex' | translate}}</mat-radio-button>
+                <mat-radio-button value="outside">{{'ex2in' | translate}}</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <hr class="style-two line">
+    </form>
+
+    <button mat-raised-button class="bigButton" (click)="submit()" [disabled]="!isSubmit()">{{'create'|
+        translate}}</button>
+    <br>
+    <br>
+    <button mat-raised-button class="bigButton cancel" (click)="reset()">{{'cancel'|
+        translate}}</button>
+
+</div>

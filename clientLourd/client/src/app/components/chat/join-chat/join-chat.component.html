@@ -1,0 +1,26 @@
+<div class="wrapper" *ngIf="this.convoManagerService.getNoAvailableRooms() || this.tutorialService.isTutorial">
+    <div class="noRoom">{{'noRoom' | translate}}</div>
+    <button mat-button id="getRooms" type="button" (click)="refresh()">
+        <span class="material-icons">
+            autorenew
+        </span>
+    </button>
+</div>
+<div *ngIf="!(this.convoManagerService.getNoAvailableRooms() || this.tutorialService.isTutorial)">
+    <h3 style="text-align: center;">
+        {{'availRooms' | translate}}
+        <button mat-button id="getRooms" type="button" (click)="refresh()">
+            <span class="material-icons">
+                autorenew
+            </span>
+        </button>
+    </h3>
+
+    <mat-selection-list #roomList [multiple]="false">
+        <mat-list-option class="{{this.currentUserService.getTheme()}}"
+            *ngFor="let room of convoManagerService.getAvailableRooms()" [value]="room"
+            (click)="this.joinRoom(roomList.selectedOptions.selected[0]?.value)">
+            {{room}}
+        </mat-list-option>
+    </mat-selection-list>
+</div>

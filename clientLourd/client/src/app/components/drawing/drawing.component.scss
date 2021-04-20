@@ -1,0 +1,70 @@
+@import "./../../../theme.scss";
+
+canvas {
+    cursor: crosshair;
+    position: absolute;
+    top: 25vh;
+    border: 5px solid $textColor;
+}
+
+#gridLayer {
+    border: none;
+}
+
+.blind{
+    cursor: crosshair;
+    top: 25vh;
+    background-color: black;
+    width: 750px;
+    position: absolute;
+    height: 430px;
+    border: 5px solid $textColor;
+}
+
+.teamGuess{
+    top: 91vh;
+    width: 750px;
+    position: absolute;
+}
+
+#canvas-container {
+    position: fixed;
+    top: 0;
+}
+
+#canvas {
+    z-index: 0;
+    background-color: white;
+}
+
+.resizer {
+    width: 5px;
+    height: 5px;
+    color: red;
+    background-color: red;
+    z-index: 1;
+}
+.right:hover {
+    cursor: ew-resize;
+}
+.bottom:hover {
+    cursor: ns-resize;
+}
+.bottom-right {
+    cursor: nwse-resize;
+}
+.right {
+    position: absolute;
+    right: -5px;
+    top: 50%;
+}
+.bottom {
+    position: absolute;
+    bottom: -5px;
+    right: 50%;
+}
+.bottom-right {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+}

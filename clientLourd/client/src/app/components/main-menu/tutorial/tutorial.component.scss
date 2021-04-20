@@ -1,0 +1,20 @@
+@import "../../../../theme.scss";
+
+
+#createRoom{
+    min-height: 450px;
+    height: 450px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#button{
+    margin-top: 75px;
+    max-height: 40px;
+    max-width: 200px;
+}
+
+.element {
+    display: inline-block;
+}

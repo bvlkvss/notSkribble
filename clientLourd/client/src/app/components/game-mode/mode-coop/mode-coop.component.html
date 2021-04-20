@@ -1,0 +1,30 @@
+<div class="sidebar">
+    <br>
+    <div class="container" *ngIf="this.coopService.isNumberPlayers(1)">
+        <img [src]="this.avatarService.getAvatarCoop(0)">
+        <br>
+        <label class="name">{{this.coopService.team[0]}}</label>
+    </div>
+    <div class="container" *ngIf="this.coopService.isNumberPlayers(2)">
+        <img [src]="this.avatarService.getAvatarCoop(1)">
+        <br>
+        <label class="name">{{this.coopService.team[1]}}</label>
+    </div>
+    <div class="container" *ngIf="this.coopService.isNumberPlayers(3)">
+        <img [src]="this.avatarService.getAvatarCoop(2)">
+        <br>
+        <label class="name" >{{this.coopService.team[2]}}</label>
+    </div>
+    <div class="container" *ngIf="this.coopService.isNumberPlayers(4)">
+        <img [src]="this.avatarService.getAvatarCoop(3)">
+        <br>
+        <label class="name">{{this.coopService.team[3]}}</label>
+    </div>
+
+    <br>
+    <br>
+    <label class="score" id="team1">{{this.soloService.score}} points </label>
+    <br>
+    <br>
+
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <div id="game_info">
+        <p *ngFor="let ob of data.message">
+            <span class="normal" *ngIf="!(ob === 'endGame' || ob === 'draw')"> {{ ob | translate}} </span>
+            <span class="end" *ngIf="ob === 'endGame'"> {{ ob | translate}} </span>
+            <span class="word" *ngIf="ob === 'correctWord'"> {{ data.word }} <span> ! </span> </span>
+            <span class="draw" *ngIf="ob === 'draw'"> {{ ob | translate}} </span>
+            <span class="draw" *ngIf="ob === 'winner'">
+                <span class="blue" *ngIf="data.winner === 'blue'"> {{ data.winner | translate}} </span>
+                <span class="red" *ngIf="data.winner === 'red'"> {{ data.winner | translate}} </span>
+            </span>
+        </p>
+        <p>
+            <button mat-button class="navButton" (click)="close()">{{'back' | translate}}</button>
+        </p>
+    </div>
+</div>
